@@ -2,11 +2,24 @@ public class Boys extends BaseChar{
   public int approval=0;
   public int time;
   public boolean date;
+  public int annoyance;
+  public boolean annoyed
   
   public boolean dateMe(){
-    if approval==100{
+    if (approval==100){
       date=true;
     }
   }
+  public boolean Annoyed(){
+    if (annoyance==15){
+      annoyed=true;
+    }
+  }
+  /*public void conversation(){
+    if (annoyed!=false){
+      conversation()=true;
+    }
+  }
+  */
 }
 

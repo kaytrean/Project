@@ -9,6 +9,9 @@ public class Boys extends BaseChar{
     }
   }
   
-  public 
+  public int doesHeApprove(){
+    //somethingsomething
+    approval++;
+  }
 }
 

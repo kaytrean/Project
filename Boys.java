@@ -1,5 +1,5 @@
 public class Boys extends BaseChar{
-  public int approval;
+  public int approval=0;
   public int time;
   public boolean date;
   
@@ -7,11 +7,6 @@ public class Boys extends BaseChar{
     if approval==100{
       date=true;
     }
-  }
-  
-  public int doesHeApprove(){
-    //somethingsomething
-    approval++;
   }
 }
 

@@ -1,6 +1,6 @@
 public class Boys extends BaseChar{
   public int approval;
-  public int timeSpent;
+  public int time;
   public boolean date;
   
   public boolean dateMe(){

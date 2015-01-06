@@ -8,6 +8,7 @@ public class BaseChar{
     public int attractiveness;
     public int brains;
     public int charisma;
+    public String name ="";
 
     public BaseChar(String n){
 	setName(n);
@@ -16,6 +17,7 @@ public class BaseChar{
     public void setName(String name){
 	this.name=name;
     }
+    //stats
     public void setEnergy(int e){
 	this.energy=e;
     }
@@ -27,6 +29,23 @@ public class BaseChar{
     }
     public void setCharisma(int c){
     	this.charisma=c;
+    }
+ 
+ //getting stats   
+    public String getName(){
+    	return name;
+    }
+    public int getEnergy(){
+    	return engergy;
+    }
+    public int getAttractiveness(){
+    	return attractiveness;
+    }
+    public int getBrains(){
+    	return brains;
+    }
+    public int getCharisma(){
+    	return charisma;
     }
 }
 	

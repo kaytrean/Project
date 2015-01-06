@@ -6,6 +6,7 @@
     public String convo(You other, String userInput){
     if (userInput.equals("1")){
       return ("Hmm I see");
+      annoyance=annoyance+1;
     }
     if (userInput.equals("2")){
       return("Ugh, can you go bother someone else?");

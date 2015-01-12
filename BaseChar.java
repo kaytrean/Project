@@ -48,4 +48,6 @@ public class BaseChar{
     	return charisma;
     }
 }
-	
+
+
+//more attractive the boy, the less affection gained

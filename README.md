@@ -14,5 +14,5 @@ Project
 <b>1/9/15</b>
 <br>Lian: Gui Map
 
-<b>1/11/15<b>
+<b>1/11/15</b>
 <br>Kathryn: Gymnast progress

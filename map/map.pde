@@ -124,10 +124,10 @@ PImage imgSchool;
 }
 */
 
-void drawSchool() {
-  // Displays the image at point (0, height/2) at half of its size
-  image(imgSchool, 0, 0, imgSchool.width/2, imgSchool.height/2);
-}
+//void drawSchool() {
+  //image(imgSchool, 0, 0, imgSchool.width/2, imgSchool.height/2);
+  //background(imgSchool);
+//}
 
 //interactions with map
 void mousePressed() {
@@ -135,7 +135,7 @@ void mousePressed() {
     currentColor = circleColor;
   }
   if (rectOver) {
-    drawSchool();
+    background(imgSchool);
   }
 }
 

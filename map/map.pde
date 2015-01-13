@@ -18,6 +18,7 @@ boolean rect3Over = false;
 boolean rect4Over = false;
 boolean circleOver = false;
 
+//original map loading
 void setup() {
   size(750, 360);
   rectColor = color(255,0,0);
@@ -43,6 +44,7 @@ void setup() {
   rect4X = width-rect4Size;
   rect4Y = height-rect4Size/2; 
   ellipseMode(CENTER);
+  imgSchool = loadImage("school.jpg");  // Load the image into the program  
 }
 
 void draw() {
@@ -111,12 +113,29 @@ void update(int x, int y) {
   }
 }
 
+//image loading
+PImage imgSchool;  
+
+/*void setupSchool() {
+  size(640, 360);
+  // The image file must be in the data folder of the current sketch 
+  // to load successfully
+  imgSchool = loadImage("school.jpg");  // Load the image into the program  
+}
+*/
+
+void drawSchool() {
+  // Displays the image at point (0, height/2) at half of its size
+  image(imgSchool, 0, 0, imgSchool.width/2, imgSchool.height/2);
+}
+
+//interactions with map
 void mousePressed() {
   if (circleOver) {
     currentColor = circleColor;
   }
   if (rectOver) {
-    currentColor = rectColor;
+    drawSchool();
   }
 }
 
@@ -165,3 +184,5 @@ boolean overCircle(int x, int y, int diameter) {
     return false;
   }
 }
+
+

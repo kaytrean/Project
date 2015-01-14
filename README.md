@@ -20,3 +20,6 @@ MATCH
 
 <b>1/12/15</b>
 <br>Lian: Gui progress
+
+<b>1/13/15</b>
+<br>Lian: Gui stuff, in java gui instead of processsing

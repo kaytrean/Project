@@ -51,3 +51,4 @@ public class BaseChar{
 
 
 //more attractive the boy, the less affection gained
+//boolean relationship = false

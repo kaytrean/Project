@@ -7,6 +7,7 @@ public class Sim{
 	if (energy==0){
 	    energy=100;
 	    day++;
+	    print "I'm so tired... I better go to bed";
 	}
     }
 }

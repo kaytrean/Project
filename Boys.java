@@ -1,4 +1,4 @@
-public class Boys extends BaseChar{
+public class Boys{
   public int approval=0;
   public int time;
   public boolean date;

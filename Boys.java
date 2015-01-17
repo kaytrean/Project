@@ -2,8 +2,8 @@ public class Boys extends BaseChar{
   public int approval=0;
   public int time;
   public boolean date;
-  public int annoyance;
-  public boolean annoyed
+  public int annoyance=0;
+  public boolean annoyed;
   
   public boolean dateMe(){
     if (approval==100){

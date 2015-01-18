@@ -23,3 +23,6 @@ MATCH
 
 <b>1/13/15</b>
 <br>Lian: Gui stuff, in java gui instead of processsing
+
+<b>1/18/15</b>
+<br>Lian: Gui stuff

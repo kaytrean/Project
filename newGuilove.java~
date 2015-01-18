@@ -42,9 +42,31 @@ public class newGuilove extends JFrame implements ActionListener{
     private JButton btnFlour;
     private JButton btnMug;
     private JButton btnCologne;
-    
+    //Back to Map
+    private JButton btnSchoolMap;
+    private JButton btnSchoolHangoutMap;
+    private JButton btnGymMap;
+    private JButton btnGymHangoutMap;
+    private JButton btnParkMap;
+    private JButton btnParkHangoutMap;
+    private JButton btnHomeMap;
+    private JButton btnStoreMap;
+    //Image Labels
+    private ImageIcon School1;
+    private JLabel labelSchool1;
+    private ImageIcon School2;
+    private JLabel labelSchool2;
+    private ImageIcon Gym1;
+    private JLabel labelGym1;
+    private ImageIcon Gym2;
+    private JLabel labelGym2;
+    private ImageIcon Park1;
+    private JLabel labelPark1;
+    private ImageIcon Park2;
+    private JLabel labelPark2;
 
     public void actionPerformed(ActionEvent e){
+	//going places
 	if(e.getSource()==btnSchool){
 	    panelSchool.setVisible(true);
 	    panelMain.setVisible(false);
@@ -57,7 +79,8 @@ public class newGuilove extends JFrame implements ActionListener{
 	}else if (e.getSource()==btnStore){
 	    panelStore.setVisible(true);
 	    panelMain.setVisible(false);
-	}else if (e.getSource()==btnSHangout){
+	}//hangingout
+	else if (e.getSource()==btnSHangout){
 	    panelSchoolHangout.setVisible(true);
 	    panelSchool.setVisible(false);
 	}else if (e.getSource()==btnGHangout){
@@ -66,17 +89,40 @@ public class newGuilove extends JFrame implements ActionListener{
 	}else if (e.getSource()==btnPHangout){
 	    panelParkHangout.setVisible(true);
 	    panelPark.setVisible(false);
+	}else if (e.getSource()==btnSchoolMap){
+	    panelMain.setVisible(true);
+	    panelSchool.setVisible(false);
+	}//back to map
+	else if (e.getSource()==btnSchoolHangoutMap){
+	    panelMain.setVisible(true);
+	    panelSchoolHangout.setVisible(false);
+	}else if (e.getSource()==btnGymMap){
+	    panelMain.setVisible(true);
+	    panelGym.setVisible(false);
+	}else if (e.getSource()==btnGymHangoutMap){
+	    panelMain.setVisible(true);
+	    panelGymHangout.setVisible(false);
+	}else if (e.getSource()==btnParkMap){
+	    panelMain.setVisible(true);
+	    panelPark.setVisible(false);
+	}else if (e.getSource()==btnParkHangoutMap){
+	    panelMain.setVisible(true);
+	    panelParkHangout.setVisible(false);
+	}else if (e.getSource()==btnStoreMap){
+	    panelMain.setVisible(true);
+	    panelStore.setVisible(false);
 	}
     }
     public newGuilove(){
         
 	setTitle("Match");
 	setLocation(100,100);
-	setSize(720,360);
+	setSize(920,560);
 	setDefaultCloseOperation(EXIT_ON_CLOSE);
 	
 	pane = getContentPane();
 	pane.setLayout(new CardLayout());
+	
 	//main menu
 	panelMain=new JPanel();
 	pane.add(panelMain);
@@ -97,11 +143,17 @@ public class newGuilove extends JFrame implements ActionListener{
 	panelSchool=new JPanel();
 	pane.add(panelSchool);
 	panelSchool.setVisible(false);
+	School1=new ImageIcon(getClass().getResource("school.jpg"));
+	labelSchool1=new JLabel(School1);
+	panelSchool.add(labelSchool1);
 	btnLearn=new JButton("Learn");
 	btnSHangout = new JButton("Hangout");
 	btnSHangout.addActionListener(this);
 	panelSchool.add(btnSHangout);
 	panelSchool.add(btnLearn);
+	btnSchoolMap=new JButton("Back to Map");
+	btnSchoolMap.addActionListener(this);
+	panelSchool.add(btnSchoolMap);
 	//School Activities
 	panelSchoolHangout=new JPanel();
 	pane.add(panelSchoolHangout);
@@ -110,15 +162,24 @@ public class newGuilove extends JFrame implements ActionListener{
        	btnSGift =new JButton("Gift");
 	panelSchoolHangout.add(btnSTalk);
 	panelSchoolHangout.add(btnSGift);
+	btnSchoolHangoutMap=new JButton("Back to Map");
+	btnSchoolHangoutMap.addActionListener(this);
+	panelSchoolHangout.add(btnSchoolHangoutMap);
 	//Gym
         panelGym=new JPanel();
 	pane.add(panelGym);
 	panelGym.setVisible(false);
+	Gym1=new ImageIcon(getClass().getResource("gym.jpg"));
+	labelGym1=new JLabel(Gym1);
+	panelGym.add(labelGym1);
 	btnWorkout=new JButton("Workout");
 	btnGHangout = new JButton("Hangout");
 	btnGHangout.addActionListener(this);
 	panelGym.add(btnGHangout);
 	panelGym.add(btnWorkout);
+	btnGymMap=new JButton("Back to Map");
+	btnGymMap.addActionListener(this);
+	panelGym.add(btnGymMap);
 	//Gym Activities
 	panelGymHangout=new JPanel();
 	pane.add(panelGymHangout);
@@ -127,23 +188,35 @@ public class newGuilove extends JFrame implements ActionListener{
        	btnGGift =new JButton("Gift");
 	panelGymHangout.add(btnGTalk);
 	panelGymHangout.add(btnGGift);
+	btnGymHangoutMap=new JButton("Back to Map");
+	btnGymHangoutMap.addActionListener(this);
+	panelGymHangout.add(btnGymHangoutMap);
 	//Park
 	panelPark=new JPanel();
 	pane.add(panelPark);
 	panelPark.setVisible(false);
+        Park1=new ImageIcon(getClass().getResource("park.jpg"));
+	labelPark1=new JLabel(Park1);
+	panelPark.add(labelPark1);
 	btnStroll=new JButton("Stroll");
 	btnPHangout = new JButton("Hangout");
 	btnPHangout.addActionListener(this);
 	panelPark.add(btnPHangout);
 	panelPark.add(btnStroll);
+	btnParkMap=new JButton("Back to Map");
+	btnParkMap.addActionListener(this);
+	panelPark.add(btnParkMap);
 	//Park Activities
 	panelParkHangout=new JPanel();
 	pane.add(panelParkHangout);
 	panelParkHangout.setVisible(false);
 	btnPTalk =new JButton("Talk");
        	btnPGift =new JButton("Gift");
-	panelParkHangout.add(btnGTalk);
-	panelParkHangout.add(btnGGift);
+	panelParkHangout.add(btnPTalk);
+	panelParkHangout.add(btnPGift);
+	btnParkHangoutMap=new JButton("Back to Map");
+	btnParkHangoutMap.addActionListener(this);
+	panelParkHangout.add(btnParkHangoutMap);
 	//Store
 	panelStore=new JPanel();
 	pane.add(panelStore);
@@ -168,6 +241,9 @@ public class newGuilove extends JFrame implements ActionListener{
 	panelStore.add(btnFlour);
 	panelStore.add(btnMug);
 	panelStore.add(btnCologne);
+	btnStoreMap=new JButton("Back to Map");
+	btnStoreMap.addActionListener(this);
+	panelStore.add(btnStoreMap);
     }
 
     public static void main(String args[]){

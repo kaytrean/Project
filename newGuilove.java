@@ -64,6 +64,8 @@ public class newGuilove extends JFrame implements ActionListener{
     private JLabel labelPark1;
     private ImageIcon Park2;
     private JLabel labelPark2;
+    private ImageIcon Store1;
+    private JLabel labelStore1;
 
     public void actionPerformed(ActionEvent e){
 	//going places
@@ -221,6 +223,9 @@ public class newGuilove extends JFrame implements ActionListener{
 	panelStore=new JPanel();
 	pane.add(panelStore);
 	panelStore.setVisible(false);
+	Store1=new ImageIcon(getClass().getResource("store.jpg"));
+	labelStore1=new JLabel(Store1);
+	panelStore.add(labelStore1);
 	btnTea=new JButton("Tea");
 	btnNovel = new JButton("Romance Novel");
 	btnHoodie =new JButton("Hoodie");

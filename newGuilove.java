@@ -15,7 +15,11 @@ public class newGuilove extends JFrame implements ActionListener{
     private JPanel panelPark;
     private JPanel panelParkHangout;
     private JPanel panelStore;
+    private JPanel panelHome;
     //Buttons(do things)
+    private JButton btnHome;
+    private JButton btnSleep;
+    private JButton btnChores;
     private JButton btnSchool;
     private JButton btnLearn;
     private JButton btnSHangout;
@@ -52,6 +56,8 @@ public class newGuilove extends JFrame implements ActionListener{
     private JButton btnHomeMap;
     private JButton btnStoreMap;
     //Image Labels
+    private ImageIcon Home1;
+    private JLabel labelHome1;
     private ImageIcon School1;
     private JLabel labelSchool1;
     private ImageIcon School2;
@@ -69,7 +75,10 @@ public class newGuilove extends JFrame implements ActionListener{
 
     public void actionPerformed(ActionEvent e){
 	//going places
-	if(e.getSource()==btnSchool){
+	if(e.getSource()==btnHome){
+	    panelHome.setVisible(true);
+	    panelMain.setVisible(false);
+	}else if(e.getSource()==btnSchool){
 	    panelSchool.setVisible(true);
 	    panelMain.setVisible(false);
 	}else if(e.getSource()==btnGym){
@@ -113,6 +122,9 @@ public class newGuilove extends JFrame implements ActionListener{
 	}else if (e.getSource()==btnStoreMap){
 	    panelMain.setVisible(true);
 	    panelStore.setVisible(false);
+	}else if (e.getSource()==btnHomeMap){
+	    panelMain.setVisible(true);
+	    panelHome.setVisible(false);
 	}
     }
     public newGuilove(){
@@ -129,6 +141,9 @@ public class newGuilove extends JFrame implements ActionListener{
 	panelMain=new JPanel();
 	pane.add(panelMain);
 	panelMain.setVisible(true);
+	btnHome=new JButton("Home");
+	btnHome.addActionListener(this);
+	panelMain.add(btnHome);
 	btnSchool=new JButton("School");
 	btnSchool.addActionListener(this);
 	panelMain.add(btnSchool);
@@ -141,6 +156,20 @@ public class newGuilove extends JFrame implements ActionListener{
 	btnStore=new JButton("Store");
 	btnStore.addActionListener(this);
 	panelMain.add(btnStore);
+	//home
+	panelHome=new JPanel();
+	pane.add(panelHome);
+	panelHome.setVisible(false);
+	Home1= new ImageIcon(getClass().getResource("home.png"));
+	labelHome1=new JLabel(Home1);
+	panelHome.add(labelHome1);
+	btnSleep = new JButton("Sleep");
+	btnChores=new JButton("Chores");
+	panelHome.add(btnSleep);
+	panelHome.add(btnChores);
+	btnHomeMap=new JButton("Back to Map");
+	btnHomeMap.addActionListener(this);
+	panelHome.add(btnHomeMap);
 	//school
 	panelSchool=new JPanel();
 	pane.add(panelSchool);

@@ -6,9 +6,9 @@ import java.util.Random;
 
 public class newGuilove extends JFrame implements ActionListener{
     private Container pane;
-    //Panels(opening)
+    //Opening Sequence
     private JPanel panelOpening1,panelOpening2,panelOpening3, panelCharacter;
-    private JTextArea opening;
+    private JLabel Opening1,Opening2;
     //Panels(places)
     private JPanel panelMain,panelSchool, panelSchoolHangout,panelGym;
     private JPanel panelGymHangout, panelPark, panelParkHangout;
@@ -32,6 +32,8 @@ public class newGuilove extends JFrame implements ActionListener{
     private JLabel labelTitle;
     private ImageIcon G1, G2,G3;
     private JLabel avatar1,avatar2,avatar3;
+    private ImageIcon Opening1;
+    private JLabel labelOpening1;
     private ImageIcon Home1;
     private JLabel labelHome1;
     private ImageIcon School1;
@@ -54,11 +56,17 @@ public class newGuilove extends JFrame implements ActionListener{
 	if(e.getSource()==btnStart){
 	    panelCharacter.setVisible(true);
 	    panelOpening1.setVisible(false);
-	}else if(e.getSource()==btnG1&&e.getSource()==btnG2&&e.getSource()==btnG3){
+	}else if(e.getSource()==btnG1||e.getSource()==btnG2||e.getSource()==btnG3){
 	    panelMain.setVisible(true);
 	    panelCharacter.setVisible(false);
+	}else if (e.getSource()==btnNxt1){
+	    panelOpening2.setVisible(true);
+	    panelCharacter.setVisible(false);
+	}else if (e.getSource()==btnNxt2){
+	    panelMain.setVisible(true);
+	    panelOpenging2.setVisible(false);
 	//going places
-	else if(e.getSource()==btnHome){
+	}else if(e.getSource()==btnHome){
 	    panelHome.setVisible(true);
 	    panelMain.setVisible(false);
 	}else if(e.getSource()==btnSchool){
@@ -109,8 +117,6 @@ public class newGuilove extends JFrame implements ActionListener{
 	    panelMain.setVisible(true);
 	    panelHome.setVisible(false);
 	}
-	}
-	    
     }
     public newGuilove(){
         
@@ -145,14 +151,32 @@ public class newGuilove extends JFrame implements ActionListener{
 	avatar3=new JLabel(G3);
 	panelCharacter.add(avatar3);
 	btnG1= new JButton("Avatar 1");
+	btnG1.addActionListener(this);
 	btnG2=new JButton("Avatar 2");
+	btnG2.addActionListener(this);
 	btnG3=new JButton("Avatar 3");
+	btnG3.addActionListener(this);
 	panelCharacter.add(btnG1);
 	panelCharacter.add(btnG2);
 	panelCharacter.add(btnG3);
 	//back story
-	//panelOpening2=new JPanel();
-	//opening = new JTextArea();
+	panelOpening2=new JPanel();
+	panelOpening2.setVisibilty(false);
+	Opening1 = new JLabel("This is my home. For 3 years,nothing eventful has ever happened to me. I've lived an extraordinarily ordinary life... until the day I moved.");
+	panelOpening2.add(Opening1);
+	Opening1 = new ImageIcon(getClass().getResource("room.jpg"));
+	labelOpening1 = new JLabel();
+	panelOpening2.add(labelOpening1);
+	btnNext1=new JButton("Next");
+	btnNext1.addActionListener(this);
+	panelOpening.add(btnNext1);
+	panelOpening3=new JPanel();
+	panelOpening3.setVisibilty(false);
+	Opening2 = new JLabel("It wasn't as if I had many friends to begin with, but still... moving to a completely new place? It's all too strange. New school, new places to discover... and on top of that Mom wants me to find a boyfriend.Well, if it's the only thing that will get her off my back.... then I must have a date before she visits me next month!");
+	panelOpening3.add(Opening2);
+	btnNext2= new JButton("Let's Go!");
+	btnNext2.addActionListener(this);
+	panelOpening3.add(btnNext2);
 	//main menu
 	panelMain=new JPanel();
 	pane.add(panelMain);

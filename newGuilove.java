@@ -6,56 +6,32 @@ import java.util.Random;
 
 public class newGuilove extends JFrame implements ActionListener{
     private Container pane;
+    //Panels(opening)
+    private JPanel panelOpening1,panelOpening2,panelOpening3, panelCharacter;
+    private JTextArea opening;
     //Panels(places)
-    private JPanel panelMain;
-    private JPanel panelSchool;
-    private JPanel panelSchoolHangout;
-    private JPanel panelGym;
-    private JPanel panelGymHangout;
-    private JPanel panelPark;
-    private JPanel panelParkHangout;
-    private JPanel panelStore;
-    private JPanel panelHome;
+    private JPanel panelMain,panelSchool, panelSchoolHangout,panelGym;
+    private JPanel panelGymHangout, panelPark, panelParkHangout;
+    private JPanel panelStore, panelHome;
     //Buttons(do things)
-    private JButton btnHome;
-    private JButton btnSleep;
-    private JButton btnChores;
-    private JButton btnSchool;
-    private JButton btnLearn;
-    private JButton btnSHangout;
-    private JButton btnSTalk;
-    private JButton btnSGift;
-    private JButton btnGym;
-    private JButton btnGHangout;
-    private JButton btnWorkout;
-    private JButton btnGTalk;
-    private JButton btnGGift;
-    private JButton btnPark;
-    private JButton btnPHangout;
-    private JButton btnStore;
-    private JButton btnStroll;
-    private JButton btnPTalk;
-    private JButton btnPGift;
-    private JButton btnTea;
-    private JButton btnNovel;
-    private JButton btnHoodie;
-    private JButton btnWatch;
-    private JButton btnPencil;
-    private JButton btnDumbell;
-    private JButton btnCD;
-    private JButton btnFlour;
-    private JButton btnMug;
-    private JButton btnCologne;
+    private JButton btnStart,btnG1,btnG2,btnG3,btnNext1,btnNext2;
+    private JButton btnHome, btnSleep,btnChores;
+    private JButton btnSchool, btnLearn,btnSHangout,btnSTalk,btnSGift;
+    private JButton btnGym,btnGHangout,btnWorkout,btnGTalk,btnGGift;
+    private JButton btnPark,btnPHangout, btnStroll, btnPTalk, btnPGift;
+    private JButton btnStore, btnTea, btnNovel, btnHoodie, btnWatch, btnPencil;
+    private JButton btnDumbell, btnCD, btnFlour,btnMug, btnCologne;
     //Back to Map
-    private JButton btnSchoolMap;
-    private JButton btnSchoolHangoutMap;
-    private JButton btnGymMap;
-    private JButton btnGymHangoutMap;
-    private JButton btnParkMap;
-    private JButton btnParkHangoutMap;
+    private JButton btnSchoolMap, btnSchoolHangoutMap;
+    private JButton btnGymMap, btnGymHangoutMap;
+    private JButton btnParkMap, btnParkHangoutMap;
     private JButton btnHomeMap;
     private JButton btnStoreMap;
     //Image Labels
+    private ImageIcon Title;
+    private JLabel labelTitle;
+    private ImageIcon G1, G2,G3;
+    private JLabel avatar1,avatar2,avatar3;
     private ImageIcon Home1;
     private JLabel labelHome1;
     private ImageIcon School1;
@@ -74,8 +50,15 @@ public class newGuilove extends JFrame implements ActionListener{
     private JLabel labelStore1;
 
     public void actionPerformed(ActionEvent e){
+	//opening
+	if(e.getSource()==btnStart){
+	    panelCharacter.setVisible(true);
+	    panelOpening1.setVisible(false);
+	}else if(e.getSource()==btnG1&&e.getSource()==btnG2&&e.getSource()==btnG3){
+	    panelMain.setVisible(true);
+	    panelCharacter.setVisible(false);
 	//going places
-	if(e.getSource()==btnHome){
+	else if(e.getSource()==btnHome){
 	    panelHome.setVisible(true);
 	    panelMain.setVisible(false);
 	}else if(e.getSource()==btnSchool){
@@ -126,21 +109,54 @@ public class newGuilove extends JFrame implements ActionListener{
 	    panelMain.setVisible(true);
 	    panelHome.setVisible(false);
 	}
+	}
+	    
     }
     public newGuilove(){
         
 	setTitle("Match");
 	setLocation(100,100);
-	setSize(920,560);
+	setSize(850,560);
 	setDefaultCloseOperation(EXIT_ON_CLOSE);
 	
 	pane = getContentPane();
 	pane.setLayout(new CardLayout());
-	
+	//opening scene
+	panelOpening1 =new JPanel();
+	pane.add(panelOpening1);
+	panelOpening1.setVisible(true);
+	Title = new ImageIcon(getClass().getResource("match.png"));
+	labelTitle = new JLabel (Title);
+	panelOpening1.add(labelTitle);
+	btnStart=new JButton("START!");
+	btnStart.addActionListener(this);
+	panelOpening1.add(btnStart);
+	//avatar choose
+	panelCharacter=new JPanel();
+	pane.add(panelCharacter);
+	panelCharacter.setVisible(false);
+	G1 = new ImageIcon(getClass().getResource("girl1.png"));
+	avatar1=new JLabel(G1);
+	panelCharacter.add(avatar1);
+	G2 = new ImageIcon(getClass().getResource("girl2.jpg"));
+	avatar2=new JLabel(G2);
+	panelCharacter.add(avatar2);
+	G3 = new ImageIcon(getClass().getResource("girl3.jpg"));
+	avatar3=new JLabel(G3);
+	panelCharacter.add(avatar3);
+	btnG1= new JButton("Avatar 1");
+	btnG2=new JButton("Avatar 2");
+	btnG3=new JButton("Avatar 3");
+	panelCharacter.add(btnG1);
+	panelCharacter.add(btnG2);
+	panelCharacter.add(btnG3);
+	//back story
+	//panelOpening2=new JPanel();
+	//opening = new JTextArea();
 	//main menu
 	panelMain=new JPanel();
 	pane.add(panelMain);
-	panelMain.setVisible(true);
+	panelMain.setVisible(false);
 	btnHome=new JButton("Home");
 	btnHome.addActionListener(this);
 	panelMain.add(btnHome);

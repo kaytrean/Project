@@ -169,7 +169,7 @@ public class newGuilove extends JFrame implements ActionListener{
 	panelOpening2.add(labelOpening1);
 	btnNext1=new JButton("Next");
 	btnNext1.addActionListener(this);
-	panelOpening.add(btnNext1);
+	panelOpening2.add(btnNext1);
 	panelOpening3=new JPanel();
 	panelOpening3.setVisibilty(false);
 	Opening2 = new JLabel("It wasn't as if I had many friends to begin with, but still... moving to a completely new place? It's all too strange. New school, new places to discover... and on top of that Mom wants me to find a boyfriend.Well, if it's the only thing that will get her off my back.... then I must have a date before she visits me next month!");

@@ -89,7 +89,7 @@ public class BaseChar{
     	String afterChores="";
     	Random c = new Random();
    	Random k = new Random();
-   	int m=k.nextInt(10)+5;
+   	int m=k.nextInt(10)+3;
     	int a = c.nextInt(3)+1;
     	if (a==3){
     		afterChores = "HOLLA HOLLA GET DOLLA!";

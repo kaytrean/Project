@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class newGuilove extends JFrame implements ActionListener{
+    BaseChar b = new BaseChar();
+    private String learnwords="";
     private Container pane;
     //Opening Sequence
     private JPanel panelOpening1,panelOpening2,panelOpening3, panelCharacter;
@@ -19,8 +21,7 @@ public class newGuilove extends JFrame implements ActionListener{
     private JButton btnSchool, btnLearn,btnSHangout,btnSTalk,btnSGift;
     private JButton btnGym,btnGHangout,btnWorkout,btnGTalk,btnGGift;
     private JButton btnPark,btnPHangout, btnStroll, btnPTalk, btnPGift;
-    private JButton btnStore, btnTea, btnNovel, btnHoodie, btnWatch, btnPencil;
-    private JButton btnDumbell, btnCD, btnFlour,btnMug, btnCologne;
+    private JButton btnStore, btnTea, btnNovel, btnHoodie, btnWatch, btnPencil, btnDumbell, btnCD, btnFlour,btnMug, btnCologne;
     //conversations(and other text things)
     private JTextArea schoolConvo, gymConvo, parkConvo,storeTalk,homeWords,schoolWords,gymWords,parkWords;
     //Back to Map
@@ -48,7 +49,7 @@ public class newGuilove extends JFrame implements ActionListener{
     private JLabel labelPark1,labelPark2;
     private ImageIcon Store1;
     private JLabel labelStore1;
-
+    
     public void actionPerformed(ActionEvent e){
 	//opening
 	if(e.getSource()==btnStart){
@@ -92,6 +93,10 @@ public class newGuilove extends JFrame implements ActionListener{
 	}else if (e.getSource()==btnSchoolMap){
 	    panelMain.setVisible(true);
 	    panelSchool.setVisible(false);
+	}//doing things
+	else if (e.getSource()==btnLearn){
+	    learnwords=b.learning();
+	    schoolWords.append(learnwords);
 	}//back to map
 	else if (e.getSource()==btnSchoolHangoutMap){
 	    panelMain.setVisible(true);
@@ -232,7 +237,9 @@ public class newGuilove extends JFrame implements ActionListener{
 	btnSchoolMap=new JButton("Back to Map");
 	btnSchoolMap.addActionListener(this);
 	panelSchool.add(btnSchoolMap);
-	schoolWords = new JTextArea("What you like to do?");
+	schoolWords = new JTextArea("What would you like to do?");
+	schoolWords.setColumns(20);
+	schoolWords.setRows(10);
 	panelSchool.add(schoolWords);
 	//School Activities
 	panelSchoolHangout=new JPanel();
@@ -249,6 +256,8 @@ public class newGuilove extends JFrame implements ActionListener{
 	btnSchoolHangoutMap.addActionListener(this);
 	panelSchoolHangout.add(btnSchoolHangoutMap);
 	schoolConvo = new JTextArea("This is Edward, he's really smart, and cute too i guess... \n ~What would you like to do?~");
+	schoolConvo.setColumns(20);
+	schoolConvo.setRows(10);
 	panelSchoolHangout.add(schoolConvo);
 	//Gym
         panelGym=new JPanel();

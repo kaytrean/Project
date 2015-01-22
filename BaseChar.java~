@@ -10,7 +10,7 @@ public class BaseChar{
     public int brains=5;
     public int charisma=5;
     public boolean relationship=false;
-    public ArrayList<String> inventroy = new ArrayList<String>();
+    public ArrayList<String> inventroy = new ArrayList();
 
     public int getEnergy(){
 	return energy;
@@ -26,22 +26,18 @@ public class BaseChar{
     }
 
 
-    public String learning(){
-	String afterLearning="";
+    public void learning(){
 	Random r = new Random();
 	int n = r.nextInt(3)+1;
 	if (n==3){
-	    afterLearning = "Hmm, this wasn't as hard as I expected... I really learned a lot today!";
+	    System.out.println( "Hmm, this wasn't as hard as I expected... I really learned a lot today!");
 	    brains=brains+3;
-	    return afterLearning;
 	}else if (n==2){
-	    afterLearning = "Hey, I think I'm getting the hang of this!";
+	    System.out.println("Hey, I think I'm getting the hang of this!");
 	    brains=brains+2;
-	    return afterLearning;
-	}else{
-	    afterLearning = "Urgg! I don't understand any of this! I should just stop now...";
+	}else if (n==1){
+	    System.out.println("Urgg! I don't understand any of this! I should just stop now...");
 	    brains=brains+1;
-	    return afterLearning;
 	}
     }
 

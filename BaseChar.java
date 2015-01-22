@@ -67,11 +67,11 @@ public class BaseChar{
     	String afterStroll="";
     	Random w = new Random();
     	int z = w.nextInt(3)+1;
-    	if (x==3){
+    	if (z==3){
     		afterStroll = "Isn't it just lovely today! I think I can hear the birds...";
     		charisma = charisma + 3;
     		return afterStroll;
-    	}else if (x==2){
+    	}else if (z==2){
     		afterStroll = "What a nice walk! It looks a little cloudy though, I should leave.";
     		charisma = charisma + 2;
     		return afterStroll;

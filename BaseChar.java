@@ -89,15 +89,15 @@ public class BaseChar{
    	int m=k.nextInt(10)+5;
     	int a = c.nextInt(3)+1;
     	if (a==3){
-    		afterChores = "Isn't it just lovely today! I think I can hear the birds...";
+    		afterChores = "There's no better feeling than getting some house work done!";
     		money = money + a+m;
     		return afterChores;
     	}else if (a==2){
-    		afterChores = "What a nice walk! It looks a little cloudy though, I should leave.";
+    		afterChores = "That was a lot of work...";
     		money = money + a + m
     		return afterChores;
     	}else{
-    		afterChores = "I think the trees are speaking to me...";
+    		afterChores = "Why is everything so messy? It looks worse than when I started";
     		money = money + a+m;
     		return afterChores;
 	    }

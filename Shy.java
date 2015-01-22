@@ -3,24 +3,29 @@ import java.util.*;
 import java.util.ArrayList;
 import java.util.Random;
 
- public class Jimmy{
+ public class Shy extends Boys{
+   
+     public Shy(int approval, int time){
+       super (approval, time){ 
+     }
      public String convo(){
       String afterConvo="";
       Random r = new Random();
       int n = r.nextInt(5)+1;
       if (n == 5){
-       afterConvo = "Be careful, you wouldnt want to work yourself so hard.";
+       afterConvo = "The sun is very bright today.";
       }else if (n == 4){
-       afterConvo = "Huh? You ok? Anything I can help you with?";
+       afterConvo = "Yes?";
       }else if (n == 3){
-	  afterConvo = "Good to see you.";
+	  afterConvo = "There are many trees here";
       }else if (n == 2){
-	  afterConvo = "Im starting to think you come here just to spend time with me. Not that I mind...";
+	  afterConvo = "No... you are not bothering me...";
       }else{
-	  afterConvo = "You did really great today! Huh? No I wasnt watching you!";
+	  afterConvo = "People eat food in the park? Whatever for? What are picnics?";
       }
       affection+= 1;
       return afterConvo;
       
      }
+ }
  }

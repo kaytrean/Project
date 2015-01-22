@@ -7,7 +7,6 @@ import java.util.Random;
 public class newGuilove extends JFrame implements ActionListener{
     BaseChar b = new BaseChar();
     private String newLine="\n";
-    private String learnwords="";
     private Container pane;
     //Opening Sequence
     private JPanel panelOpening1,panelOpening2,panelOpening3, panelCharacter;
@@ -95,10 +94,12 @@ public class newGuilove extends JFrame implements ActionListener{
 	    panelMain.setVisible(true);
 	    panelSchool.setVisible(false);
 	}//doing things
-	else if (e.getSource()==btnLearn){
-	    learnwords=b.learning();
-	    schoolWords.append(newLine+learnwords);
+	else if (e.getSource()==btnWorkout){
+	    schoolWords.append(newLine+b.learning());
 	    schoolWords.append(newLine+"Your smarts level is now:"+b.getBrains());
+	}else if (e.getSource()==btnWorkout){
+	    gymWords.append(newLine+b.workout());
+	    gymWords.append(newLine+"Your strength level is now:"+b.getStrength());
 	}//back to map
 	else if (e.getSource()==btnSchoolHangoutMap){
 	    panelMain.setVisible(true);
@@ -270,6 +271,7 @@ public class newGuilove extends JFrame implements ActionListener{
 	labelGym1=new JLabel(Gym1);
 	panelGym.add(labelGym1);
 	btnWorkout=new JButton("Workout");
+	btnWorkout.addActionListener(this);
 	btnGHangout = new JButton("Hangout");
 	btnGHangout.addActionListener(this);
 	panelGym.add(btnGHangout);
@@ -277,6 +279,10 @@ public class newGuilove extends JFrame implements ActionListener{
 	btnGymMap=new JButton("Back to Map");
 	btnGymMap.addActionListener(this);
 	panelGym.add(btnGymMap);
+	gymWords = new JTextArea("What would you like to do?");
+	gymWords.setColumns(20);
+	gymWords.setRows(10);
+	panelGym.add(gymWords);
 	//Gym Activities
 	panelGymHangout=new JPanel();
 	pane.add(panelGymHangout);

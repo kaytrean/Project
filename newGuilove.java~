@@ -5,10 +5,13 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class newGuilove extends JFrame implements ActionListener{
+    BaseChar b = new BaseChar();
+    private String newLine="\n";
+    private String learnwords="";
     private Container pane;
     //Opening Sequence
     private JPanel panelOpening1,panelOpening2,panelOpening3, panelCharacter;
-    private JTextArea Opening1,Opening2;
+    private JTextArea Opening1,Opening2,MapText;
     //Panels(places)
     private JPanel panelMain,panelSchool, panelSchoolHangout,panelGym;
     private JPanel panelGymHangout, panelPark, panelParkHangout;
@@ -19,8 +22,9 @@ public class newGuilove extends JFrame implements ActionListener{
     private JButton btnSchool, btnLearn,btnSHangout,btnSTalk,btnSGift;
     private JButton btnGym,btnGHangout,btnWorkout,btnGTalk,btnGGift;
     private JButton btnPark,btnPHangout, btnStroll, btnPTalk, btnPGift;
-    private JButton btnStore, btnTea, btnNovel, btnHoodie, btnWatch, btnPencil;
-    private JButton btnDumbell, btnCD, btnFlour,btnMug, btnCologne;
+    private JButton btnStore, btnTea, btnNovel, btnHoodie, btnWatch, btnPencil, btnDumbell, btnCD, btnFlour,btnMug, btnCologne;
+    //conversations(and other text things)
+    private JTextArea schoolConvo, gymConvo, parkConvo,storeTalk,homeWords,schoolWords,gymWords,parkWords;
     //Back to Map
     private JButton btnSchoolMap, btnSchoolHangoutMap;
     private JButton btnGymMap, btnGymHangoutMap;
@@ -34,23 +38,19 @@ public class newGuilove extends JFrame implements ActionListener{
     private JLabel avatar1,avatar2,avatar3;
     private ImageIcon OpeningRoom;
     private JLabel labelOpeningRoom;
+    private ImageIcon Map;
+    private JLabel labelMap;
     private ImageIcon Home1;
     private JLabel labelHome1;
-    private ImageIcon School1;
-    private JLabel labelSchool1;
-    private ImageIcon School2;
-    private JLabel labelSchool2;
-    private ImageIcon Gym1;
-    private JLabel labelGym1;
-    private ImageIcon Gym2;
-    private JLabel labelGym2;
-    private ImageIcon Park1;
-    private JLabel labelPark1;
-    private ImageIcon Park2;
-    private JLabel labelPark2;
+    private ImageIcon School1,School2;
+    private JLabel labelSchool1,labelSchool2;
+    private ImageIcon Gym1,Gym2;
+    private JLabel labelGym1,labelGym2;
+    private ImageIcon Park1,Park2;
+    private JLabel labelPark1,labelPark2;
     private ImageIcon Store1;
     private JLabel labelStore1;
-
+    
     public void actionPerformed(ActionEvent e){
 	//opening
 	if(e.getSource()==btnStart){
@@ -94,6 +94,11 @@ public class newGuilove extends JFrame implements ActionListener{
 	}else if (e.getSource()==btnSchoolMap){
 	    panelMain.setVisible(true);
 	    panelSchool.setVisible(false);
+	}//doing things
+	else if (e.getSource()==btnLearn){
+	    learnwords=b.learning();
+	    schoolWords.append(newLine+learnwords);
+	    schoolWords.append(newLine+"Your smarts level is now:"+b.getBrains());
 	}//back to map
 	else if (e.getSource()==btnSchoolHangoutMap){
 	    panelMain.setVisible(true);
@@ -198,6 +203,13 @@ public class newGuilove extends JFrame implements ActionListener{
 	btnStore=new JButton("Store");
 	btnStore.addActionListener(this);
 	panelMain.add(btnStore);
+	Map = new ImageIcon(getClass().getResource("map1.png"));
+	labelMap= new JLabel(Map);
+	panelMain.add(labelMap);
+	MapText = new JTextArea("From my map, I can go to different locations every day. \n It is still summer vacation, but I can still go to the local school to catch up on my studies. \n I could go to the gym if I want to work out... Or maybe just the park if I want to relax. \n There is also a store nearby if I want to go shopping.");
+	MapText.setColumns(40);
+	MapText.setRows(10);
+	panelMain.add(MapText);
 	//home
 	panelHome=new JPanel();
 	pane.add(panelHome);
@@ -220,6 +232,7 @@ public class newGuilove extends JFrame implements ActionListener{
 	labelSchool1=new JLabel(School1);
 	panelSchool.add(labelSchool1);
 	btnLearn=new JButton("Learn");
+	btnLearn.addActionListener(this);
 	btnSHangout = new JButton("Hangout");
 	btnSHangout.addActionListener(this);
 	panelSchool.add(btnSHangout);
@@ -227,10 +240,17 @@ public class newGuilove extends JFrame implements ActionListener{
 	btnSchoolMap=new JButton("Back to Map");
 	btnSchoolMap.addActionListener(this);
 	panelSchool.add(btnSchoolMap);
+	schoolWords = new JTextArea("What would you like to do?");
+	schoolWords.setColumns(20);
+	schoolWords.setRows(10);
+	panelSchool.add(schoolWords);
 	//School Activities
 	panelSchoolHangout=new JPanel();
 	pane.add(panelSchoolHangout);
 	panelSchoolHangout.setVisible(false);
+	School2 = new ImageIcon(getClass().getResource("schoolTalk.jpg"));
+	labelSchool2= new JLabel(School2);
+	panelSchoolHangout.add(labelSchool2);
 	btnSTalk =new JButton("Talk");
        	btnSGift =new JButton("Gift");
 	panelSchoolHangout.add(btnSTalk);
@@ -238,6 +258,10 @@ public class newGuilove extends JFrame implements ActionListener{
 	btnSchoolHangoutMap=new JButton("Back to Map");
 	btnSchoolHangoutMap.addActionListener(this);
 	panelSchoolHangout.add(btnSchoolHangoutMap);
+	schoolConvo = new JTextArea("This is Edward, he's really smart, and cute too i guess... \n ~What would you like to do?~");
+	schoolConvo.setColumns(20);
+	schoolConvo.setRows(10);
+	panelSchoolHangout.add(schoolConvo);
 	//Gym
         panelGym=new JPanel();
 	pane.add(panelGym);

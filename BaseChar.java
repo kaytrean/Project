@@ -93,15 +93,15 @@ public class BaseChar{
     	int a = c.nextInt(3)+1;
     	if (a==3){
     		afterChores = "HOLLA HOLLA GET DOLLA!";
-    		money = money + a+m;
+    		money = money + m;
     		return afterChores;
     	}else if (a==2){
     		afterChores = "That was a lot of work...";
-    		money = money + a + m;
+    		money = money + m;
     		return afterChores;
     	}else{
     		afterChores = "Why is everything so messy? It looks worse than when I started";
-    		money = money + a+m;
+    		money = money + m;
     		return afterChores;
 	    }
 	}

@@ -24,6 +24,15 @@ public class newGuilove extends JFrame implements ActionListener{
     private JButton btnStore, btnTea, btnNovel, btnHoodie, btnWatch, btnPencil, btnDumbell, btnCD, btnFlour,btnMug, btnCologne;
     //conversations(and other text things)
     private JTextArea schoolConvo, gymConvo, parkConvo,storeTalk,homeWords,schoolWords,gymWords,parkWords;
+    /*private JScrollPane scroll = new JScrollPane(schoolConvo, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    private JScrollPane scroll1 = new JScrollPane(gymConvo, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    private JScrollPane scroll2 = new JScrollPane(parkConvo, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    private JScrollPane scroll3 = new JScrollPane(storeTalk, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    private JScrollPane scroll4 = new JScrollPane(homeWords, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    private JScrollPane scroll5 = new JScrollPane(schoolWords, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    private JScrollPane scroll6 = new JScrollPane(gymWords, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    private JScrollPane scroll7 = new JScrollPane(parkWords, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    */
     //Back to Map
     private JButton btnSchoolMap, btnSchoolHangoutMap;
     private JButton btnGymMap, btnGymHangoutMap;
@@ -101,12 +110,19 @@ public class newGuilove extends JFrame implements ActionListener{
 	}else if (e.getSource()==btnWorkout){
 	    gymWords.append(newLine+b.workout());
 	    gymWords.append(newLine+"Your strength level is now:"+b.getStrength());
+	    gymWords.append(newLine+"Your energy is now:"+b.getEnergy());
 	}else if (e.getSource()==btnStroll){
 	    parkWords.append(newLine+b.stroll());
 	    parkWords.append(newLine+"Your charisma level is now:"+b.getCharisma());
+	    parkWords.append(newLine+"Your energy is now:"+b.getEnergy());
 	}else if (e.getSource()==btnChores){
 	    homeWords.append(newLine+b.chores());
 	    homeWords.append(newLine+"You now have $"+b.getMoney()+" dollars");
+	    homeWords.append(newLine+"Your energy is now:"+b.getEnergy());
+	}else if (e.getSource()==btnSleep){
+	    homeWords.append(newLine+b.sleep());
+	    homeWords.append(newLine+"Your energy level is now: "+b.getEnergy());
+	    homeWords.append(newLine+"You now have "+(31-b.getDays())+" days left");
 	}
 	//back to map
 	else if (e.getSource()==btnSchoolHangoutMap){
@@ -135,8 +151,8 @@ public class newGuilove extends JFrame implements ActionListener{
     public newGuilove(){
         
 	setTitle("Match");
-	setLocation(100,100);
-	setSize(850,560);
+	setLocation(0,0);
+	setSize(950,660);
 	setDefaultCloseOperation(EXIT_ON_CLOSE);
 	
 	pane = getContentPane();
@@ -227,6 +243,7 @@ public class newGuilove extends JFrame implements ActionListener{
 	labelHome1=new JLabel(Home1);
 	panelHome.add(labelHome1);
 	btnSleep = new JButton("Sleep");
+	btnSleep.addActionListener(this);
 	btnChores=new JButton("Chores");
 	btnChores.addActionListener(this);
 	panelHome.add(btnSleep);

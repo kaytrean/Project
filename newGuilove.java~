@@ -7,7 +7,6 @@ import java.util.Random;
 public class newGuilove extends JFrame implements ActionListener{
     BaseChar b = new BaseChar();
     private String newLine="\n";
-    private String learnwords="";
     private Container pane;
     //Opening Sequence
     private JPanel panelOpening1,panelOpening2,panelOpening3, panelCharacter;
@@ -96,10 +95,20 @@ public class newGuilove extends JFrame implements ActionListener{
 	    panelSchool.setVisible(false);
 	}//doing things
 	else if (e.getSource()==btnLearn){
-	    learnwords=b.learning();
-	    schoolWords.append(newLine+learnwords);
+	    schoolWords.append(newLine+b.learning());
 	    schoolWords.append(newLine+"Your smarts level is now:"+b.getBrains());
-	}//back to map
+	    schoolWords.append(newLine+"Your energy is now:"+b.getEnergy());
+	}else if (e.getSource()==btnWorkout){
+	    gymWords.append(newLine+b.workout());
+	    gymWords.append(newLine+"Your strength level is now:"+b.getStrength());
+	}else if (e.getSource()==btnStroll){
+	    parkWords.append(newLine+b.stroll());
+	    parkWords.append(newLine+"Your charisma level is now:"+b.getCharisma());
+	}else if (e.getSource()==btnChores){
+	    homeWords.append(newLine+b.chores());
+	    homeWords.append(newLine+"You now have $"+b.getMoney()+" dollars");
+	}
+	//back to map
 	else if (e.getSource()==btnSchoolHangoutMap){
 	    panelMain.setVisible(true);
 	    panelSchoolHangout.setVisible(false);
@@ -219,11 +228,14 @@ public class newGuilove extends JFrame implements ActionListener{
 	panelHome.add(labelHome1);
 	btnSleep = new JButton("Sleep");
 	btnChores=new JButton("Chores");
+	btnChores.addActionListener(this);
 	panelHome.add(btnSleep);
 	panelHome.add(btnChores);
 	btnHomeMap=new JButton("Back to Map");
 	btnHomeMap.addActionListener(this);
 	panelHome.add(btnHomeMap);
+	homeWords = new JTextArea("What would you like to do?");
+	panelHome.add(homeWords);
 	//school
 	panelSchool=new JPanel();
 	pane.add(panelSchool);
@@ -241,8 +253,6 @@ public class newGuilove extends JFrame implements ActionListener{
 	btnSchoolMap.addActionListener(this);
 	panelSchool.add(btnSchoolMap);
 	schoolWords = new JTextArea("What would you like to do?");
-	schoolWords.setColumns(20);
-	schoolWords.setRows(10);
 	panelSchool.add(schoolWords);
 	//School Activities
 	panelSchoolHangout=new JPanel();
@@ -258,7 +268,7 @@ public class newGuilove extends JFrame implements ActionListener{
 	btnSchoolHangoutMap=new JButton("Back to Map");
 	btnSchoolHangoutMap.addActionListener(this);
 	panelSchoolHangout.add(btnSchoolHangoutMap);
-	schoolConvo = new JTextArea("This is Edward, he's really smart, and cute too i guess... \n ~What would you like to do?~");
+	schoolConvo = new JTextArea("This is Landon, he's really smart, and cute too i guess... \n ~What would you like to do?~");
 	schoolConvo.setColumns(20);
 	schoolConvo.setRows(10);
 	panelSchoolHangout.add(schoolConvo);
@@ -270,6 +280,7 @@ public class newGuilove extends JFrame implements ActionListener{
 	labelGym1=new JLabel(Gym1);
 	panelGym.add(labelGym1);
 	btnWorkout=new JButton("Workout");
+	btnWorkout.addActionListener(this);
 	btnGHangout = new JButton("Hangout");
 	btnGHangout.addActionListener(this);
 	panelGym.add(btnGHangout);
@@ -277,10 +288,17 @@ public class newGuilove extends JFrame implements ActionListener{
 	btnGymMap=new JButton("Back to Map");
 	btnGymMap.addActionListener(this);
 	panelGym.add(btnGymMap);
+	gymWords = new JTextArea("What would you like to do?");
+	gymWords.setColumns(20);
+	gymWords.setRows(10);
+	panelGym.add(gymWords);
 	//Gym Activities
 	panelGymHangout=new JPanel();
 	pane.add(panelGymHangout);
 	panelGymHangout.setVisible(false);
+	Gym2 = new ImageIcon(getClass().getResource("gymTalk.jpg"));
+	labelGym2= new JLabel(Gym2);
+	panelGymHangout.add(labelGym2);
 	btnGTalk =new JButton("Talk");
        	btnGGift =new JButton("Gift");
 	panelGymHangout.add(btnGTalk);
@@ -288,6 +306,10 @@ public class newGuilove extends JFrame implements ActionListener{
 	btnGymHangoutMap=new JButton("Back to Map");
 	btnGymHangoutMap.addActionListener(this);
 	panelGymHangout.add(btnGymHangoutMap);
+	gymConvo = new JTextArea("This is Jimmy, he's captain of the swim team, fencing team, and gymnatics team \n Wow, athletic AND cute. \n ~What would you like to do?~");
+	gymConvo.setColumns(20);
+	gymConvo.setRows(10);
+	panelGymHangout.add(gymConvo);
 	//Park
 	panelPark=new JPanel();
 	pane.add(panelPark);
@@ -296,6 +318,7 @@ public class newGuilove extends JFrame implements ActionListener{
 	labelPark1=new JLabel(Park1);
 	panelPark.add(labelPark1);
 	btnStroll=new JButton("Stroll");
+	btnStroll.addActionListener(this);
 	btnPHangout = new JButton("Hangout");
 	btnPHangout.addActionListener(this);
 	panelPark.add(btnPHangout);
@@ -303,10 +326,17 @@ public class newGuilove extends JFrame implements ActionListener{
 	btnParkMap=new JButton("Back to Map");
 	btnParkMap.addActionListener(this);
 	panelPark.add(btnParkMap);
+	parkWords = new JTextArea("What would you like to do?");
+	parkWords.setColumns(20);
+	parkWords.setRows(10);
+	panelPark.add(parkWords);
 	//Park Activities
 	panelParkHangout=new JPanel();
 	pane.add(panelParkHangout);
 	panelParkHangout.setVisible(false);
+	Park2=new ImageIcon(getClass().getResource("parkTalk.jpg"));
+	labelPark2=new JLabel(Park2);
+	panelParkHangout.add(labelPark2);
 	btnPTalk =new JButton("Talk");
        	btnPGift =new JButton("Gift");
 	panelParkHangout.add(btnPTalk);
@@ -314,6 +344,10 @@ public class newGuilove extends JFrame implements ActionListener{
 	btnParkHangoutMap=new JButton("Back to Map");
 	btnParkHangoutMap.addActionListener(this);
 	panelParkHangout.add(btnParkHangoutMap);
+	parkConvo = new JTextArea("This is Harry, he's pretty quiet, around school he usually reads or listens to music \n by himself in the courtyard. He seems nice \n Maybe I should get to know him better. \n ~What would you like to do?~");
+	parkConvo.setColumns(20);
+	parkConvo.setRows(10);
+	panelParkHangout.add(parkConvo);
 	//Store
 	panelStore=new JPanel();
 	pane.add(panelStore);
@@ -321,16 +355,16 @@ public class newGuilove extends JFrame implements ActionListener{
 	Store1=new ImageIcon(getClass().getResource("store.jpg"));
 	labelStore1=new JLabel(Store1);
 	panelStore.add(labelStore1);
-	btnTea=new JButton("Tea");
-	btnNovel = new JButton("Romance Novel");
-	btnHoodie =new JButton("Hoodie");
-	btnWatch = new JButton("Watch");
-	btnPencil =new JButton("Over Priced Pencil");
-	btnDumbell = new JButton("Dumbells");
-	btnCD =new JButton("CD");
-	btnFlour = new JButton("Flour");
-	btnMug =new JButton("Mug");
-	btnCologne = new JButton("Cologne");
+	btnTea=new JButton("Tea: $10");
+	btnNovel = new JButton("Romance Novel: $15");
+	btnHoodie =new JButton("Hoodie: $26");
+	btnWatch = new JButton("Watch: $90");
+	btnPencil =new JButton("Over Priced Pencil: $9");
+	btnDumbell = new JButton("Dumbells: $15");
+	btnCD =new JButton("CD: $9");
+	btnFlour = new JButton("Flour: $5");
+	btnMug =new JButton("Mug: 7");
+	btnCologne = new JButton("Cologne: $25");
 	panelStore.add(btnTea);
 	panelStore.add(btnNovel);
 	panelStore.add(btnHoodie);
@@ -344,6 +378,8 @@ public class newGuilove extends JFrame implements ActionListener{
 	btnStoreMap=new JButton("Back to Map");
 	btnStoreMap.addActionListener(this);
 	panelStore.add(btnStoreMap);
+	storeTalk = new JTextArea("What do you want to buy?");
+	panelStore.add(storeTalk);
     }
 
     public static void main(String args[]){

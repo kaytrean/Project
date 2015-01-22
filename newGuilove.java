@@ -6,6 +6,7 @@ import java.util.Random;
 
 public class newGuilove extends JFrame implements ActionListener{
     BaseChar b = new BaseChar();
+    private String newLine="\n";
     private String learnwords="";
     private Container pane;
     //Opening Sequence
@@ -96,7 +97,8 @@ public class newGuilove extends JFrame implements ActionListener{
 	}//doing things
 	else if (e.getSource()==btnLearn){
 	    learnwords=b.learning();
-	    schoolWords.append(learnwords);
+	    schoolWords.append(newLine+learnwords);
+	    schoolWords.append(newLine+"Your smarts level is now:"+b.getBrains());
 	}//back to map
 	else if (e.getSource()==btnSchoolHangoutMap){
 	    panelMain.setVisible(true);
@@ -230,6 +232,7 @@ public class newGuilove extends JFrame implements ActionListener{
 	labelSchool1=new JLabel(School1);
 	panelSchool.add(labelSchool1);
 	btnLearn=new JButton("Learn");
+	btnLearn.addActionListener(this);
 	btnSHangout = new JButton("Hangout");
 	btnSHangout.addActionListener(this);
 	panelSchool.add(btnSHangout);

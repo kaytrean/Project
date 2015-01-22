@@ -97,7 +97,7 @@ public class BaseChar{
     		return afterChores;
     	}else if (a==2){
     		afterChores = "That was a lot of work...";
-    		money = money + a + m
+    		money = money + a + m;
     		return afterChores;
     	}else{
     		afterChores = "Why is everything so messy? It looks worse than when I started";

@@ -92,7 +92,7 @@ public class BaseChar{
    	int m=k.nextInt(10)+5;
     	int a = c.nextInt(3)+1;
     	if (a==3){
-    		afterChores = "There's no better feeling than getting some house work done!";
+    		afterChores = "HOLLA HOLLA GET DOLLA!";
     		money = money + a+m;
     		return afterChores;
     	}else if (a==2){

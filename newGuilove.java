@@ -103,7 +103,11 @@ public class newGuilove extends JFrame implements ActionListener{
 	}else if (e.getSource()==btnStroll){
 	    parkWords.append(newLine+b.stroll());
 	    parkWords.append(newLine+"Your charisma level is now:"+b.getCharisma());
-	}//back to map
+	}else if (e.getSource()==btnChores){
+	    homeWords.append(newLine+b.chores());
+	    homeWords.append(newLine+"You now have $"+b.getMoney()+" dollars");
+	}
+	//back to map
 	else if (e.getSource()==btnSchoolHangoutMap){
 	    panelMain.setVisible(true);
 	    panelSchoolHangout.setVisible(false);
@@ -223,11 +227,14 @@ public class newGuilove extends JFrame implements ActionListener{
 	panelHome.add(labelHome1);
 	btnSleep = new JButton("Sleep");
 	btnChores=new JButton("Chores");
+	btnChores.addActionListener(this);
 	panelHome.add(btnSleep);
 	panelHome.add(btnChores);
 	btnHomeMap=new JButton("Back to Map");
 	btnHomeMap.addActionListener(this);
 	panelHome.add(btnHomeMap);
+	homeWords = new JTextArea("What would you like to do?");
+	panelHome.add(homeWords);
 	//school
 	panelSchool=new JPanel();
 	pane.add(panelSchool);
@@ -245,8 +252,6 @@ public class newGuilove extends JFrame implements ActionListener{
 	btnSchoolMap.addActionListener(this);
 	panelSchool.add(btnSchoolMap);
 	schoolWords = new JTextArea("What would you like to do?");
-	schoolWords.setColumns(20);
-	schoolWords.setRows(10);
 	panelSchool.add(schoolWords);
 	//School Activities
 	panelSchoolHangout=new JPanel();
@@ -349,16 +354,16 @@ public class newGuilove extends JFrame implements ActionListener{
 	Store1=new ImageIcon(getClass().getResource("store.jpg"));
 	labelStore1=new JLabel(Store1);
 	panelStore.add(labelStore1);
-	btnTea=new JButton("Tea");
-	btnNovel = new JButton("Romance Novel");
-	btnHoodie =new JButton("Hoodie");
-	btnWatch = new JButton("Watch");
-	btnPencil =new JButton("Over Priced Pencil");
-	btnDumbell = new JButton("Dumbells");
-	btnCD =new JButton("CD");
-	btnFlour = new JButton("Flour");
-	btnMug =new JButton("Mug");
-	btnCologne = new JButton("Cologne");
+	btnTea=new JButton("Tea: $10");
+	btnNovel = new JButton("Romance Novel: $15");
+	btnHoodie =new JButton("Hoodie: $26");
+	btnWatch = new JButton("Watch: $90");
+	btnPencil =new JButton("Over Priced Pencil: $9");
+	btnDumbell = new JButton("Dumbells: $15");
+	btnCD =new JButton("CD: $9");
+	btnFlour = new JButton("Flour: $5");
+	btnMug =new JButton("Mug: 7");
+	btnCologne = new JButton("Cologne: $25");
 	panelStore.add(btnTea);
 	panelStore.add(btnNovel);
 	panelStore.add(btnHoodie);
@@ -372,6 +377,8 @@ public class newGuilove extends JFrame implements ActionListener{
 	btnStoreMap=new JButton("Back to Map");
 	btnStoreMap.addActionListener(this);
 	panelStore.add(btnStoreMap);
+	storeTalk = new JTextArea("What do you want to buy?");
+	panelStore.add(storeTalk);
     }
 
     public static void main(String args[]){

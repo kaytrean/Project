@@ -10,6 +10,7 @@ public class BaseChar{
     public int brains=5;
     public int charisma=5;
     public boolean relationship=false;
+    public int money=10;
     public ArrayList<String> inventroy = new ArrayList<String>();
 
     public int getEnergy(){
@@ -79,6 +80,26 @@ public class BaseChar{
     		afterStroll = "I think the trees are speaking to me...";
     		charisma = charisma + 1;
     		return afterStroll;
+	    }
+	}
+	public String chores(){
+    	String afterChores="";
+    	Random c = new Random();
+   	Random k = new Random();
+   	int m=k.nextInt(10)+5;
+    	int a = c.nextInt(3)+1;
+    	if (a==3){
+    		afterChores = "Isn't it just lovely today! I think I can hear the birds...";
+    		money = money + a+m;
+    		return afterChores;
+    	}else if (a==2){
+    		afterChores = "What a nice walk! It looks a little cloudy though, I should leave.";
+    		money = money + a + m
+    		return afterChores;
+    	}else{
+    		afterChores = "I think the trees are speaking to me...";
+    		money = money + a+m;
+    		return afterChores;
 	    }
 	}
 }

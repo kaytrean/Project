@@ -97,6 +97,7 @@ public class newGuilove extends JFrame implements ActionListener{
 	else if (e.getSource()==btnLearn){
 	    schoolWords.append(newLine+b.learning());
 	    schoolWords.append(newLine+"Your smarts level is now:"+b.getBrains());
+	    schoolWords.append(newLine+"Your energy is now:"+b.getEnergy());
 	}else if (e.getSource()==btnWorkout){
 	    gymWords.append(newLine+b.workout());
 	    gymWords.append(newLine+"Your strength level is now:"+b.getStrength());

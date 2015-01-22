@@ -44,7 +44,43 @@ public class BaseChar{
 	    return afterLearning;
 	}
     }
-
+    
+    public String workout(){
+    	String afterWorkout="";
+    	Random f = new Random();
+    	int x = f.nextInt(3)+1;
+    	if (x==3){
+    		afterWorkout = "Hmm, don't I feel healthy!";
+    		strength = strength + 3;
+    		return afterWorkout;
+    	}else if (x==2){
+    		afterWorkout = "Ewww, I feel all sweaty... at least I got some exercise.";
+    		strength = strength + 2;
+    		return afterWorkout;
+    	}else{
+    		afterWorkout = "I think that woman was staring at me...";
+    		strength = strength + 1;
+    		return afterWorkout;
+	    	}
+    }
+    public String stroll(){
+    	String afterStroll="";
+    	Random w = new Random();
+    	int z = w.nextInt(3)+1;
+    	if (x==3){
+    		afterStroll = "Isn't it just lovely today! I think I can hear the birds...";
+    		charisma = charisma + 3;
+    		return afterStroll;
+    	}else if (x==2){
+    		afterStroll = "What a nice walk! It looks a little cloudy though, I should leave.";
+    		charisma = charisma + 2;
+    		return afterStroll;
+    	}else{
+    		afterStroll = "I think the trees are speaking to me...";
+    		charisma = charisma + 1;
+    		return afterStroll;
+	    }
+	}
 }
 //more attractive the boy, the less affection gained
 //boolean relationship = false

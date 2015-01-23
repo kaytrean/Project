@@ -7,7 +7,7 @@ import java.util.Random;
 public class newGuilove extends JFrame implements ActionListener{
     BaseChar b = new BaseChar();
     //Prep p = new Prep();
-    //Jimmy j=new Jimmy();
+    Jimmy j=new Jimmy();
     //shy s=new shy();
     private String newLine="\n";
 
@@ -158,6 +158,7 @@ public class newGuilove extends JFrame implements ActionListener{
 		b.money=b.money-10;
 		storeTalk.append(newLine+"You bought some tea!");
 		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
+		//storeTalk.append(newLine+"You now have "+b.getInventory()+" in your bag");
 	    }else{ storeTalk.append(newLine+"You dont have enough money!");
 		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
 	    }
@@ -167,6 +168,7 @@ public class newGuilove extends JFrame implements ActionListener{
 		b.money=b.money-26;
 		storeTalk.append(newLine+"You bought a hoodie!");
 		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
+		//storeTalk.append(newLine+"You now have "+b.getInventory()+" in your bag");
 	    }else{ storeTalk.append(newLine+"You dont have enough money!");
 		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
 	    }
@@ -176,47 +178,90 @@ public class newGuilove extends JFrame implements ActionListener{
 		b.money=b.money-15;
 		storeTalk.append(newLine+"You bought a romance novel!");
 		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
+		//storeTalk.append(newLine+"You now have "+b.getInventory()+" in your bag");
 	    }else{ storeTalk.append(newLine+"You dont have enough money!");
 		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
 	    }
 	}else if (e.getSource()==btnWatch){
-	    if(b.money-10>=0){
+	    if(b.money-90>=0){
 		b.buy("Watch");
-		b.money=b.money-10;
+		b.money=b.money-90;
 		storeTalk.append(newLine+"You bought a watch!");
 		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
+		//storeTalk.append(newLine+"You now have "+b.getInventory()+" in your bag");
 	    }else{ storeTalk.append(newLine+"You dont have enough money!");
 		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
 	    }
 	}else if (e.getSource()==btnPencil){
-	    if(b.money-10>=0){
+	    if(b.money-9>=0){
 		b.buy("Pencil");
-		b.money=b.money-10;
+		b.money=b.money-9;
 		storeTalk.append(newLine+"You bought an over priced pencil!");
 		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
+		//	storeTalk.append(newLine+"You now have "+b.getInventory()+" in your bag");
 	    }else{ storeTalk.append(newLine+"You dont have enough money!");
 		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
 	    }
 	}else if (e.getSource()==btnDumbell){
-	    if(b.money-10>=0){
+	    if(b.money-15>=0){
 		b.buy("Dumbell");
-		b.money=b.money-10;
+		b.money=b.money-15;
 		storeTalk.append(newLine+"You bought some dumbells!");
 		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
+		//storeTalk.append(newLine+"You now have "+b.getInventory()+" in your bag");
 	    }else{ storeTalk.append(newLine+"You dont have enough money!");
 		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
 	    }
 	}else if (e.getSource()==btnCD){
-	    if(b.money-10>=0){
+	    if(b.money-9>=0){
 		b.buy("CD");
-		b.money=b.money-10;
+		b.money=b.money-9;
 		storeTalk.append(newLine+"You bought a CD!");
 		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
+		//storeTalk.append(newLine+"You now have "+b.getInventory()+" in your bag");
+	    }else{ storeTalk.append(newLine+"You dont have enough money!");
+		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
+	    }
+	}else if (e.getSource()==btnFlour){
+	    if(b.money-5>=0){
+		b.buy("Flour");
+		b.money=b.money-5;
+		storeTalk.append(newLine+"You bought some flour!");
+		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
+		//storeTalk.append(newLine+"You now have "+b.getInventory()+" in your bag");
+	    }else{ storeTalk.append(newLine+"You dont have enough money!");
+		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
+	    }
+	}else if (e.getSource()==btnMug){
+	    if(b.money-7>=0){
+		b.buy("Mug");
+		b.money=b.money-7;
+		storeTalk.append(newLine+"You bought a mug!");
+		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
+		//storeTalk.append(newLine+"You now have "+b.getInventory()+" in your bag");
+	    }else{ storeTalk.append(newLine+"You dont have enough money!");
+		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
+	    }
+	}else if (e.getSource()==btnCologne){
+	    if(b.money-25>=0){
+		b.buy("Cologne");
+		b.money=b.money-25;
+		storeTalk.append(newLine+"You bought cologne!");
+		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
+		//storeTalk.append(newLine+"You now have "+b.getInventory()+" in your bag");
 	    }else{ storeTalk.append(newLine+"You dont have enough money!");
 		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
 	    }
 	}
+<<<<<<< HEAD
 	}
+=======
+	else if (e.getSource()==btnGGift){
+	    gymConvo.append(newLine+"What would you like to give?");
+	    gymConvo.append()
+	    j.gift()
+    }
+>>>>>>> origin/master
     public newGuilove(){
         
 	setTitle("Match");

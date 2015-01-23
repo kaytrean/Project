@@ -5,7 +5,9 @@ import java.util.Random;
 
  public class Shy extends Boys{
    
- 
+     public Shy(int approval, int time){
+       super (approval, time){ 
+     }
      public String convo(){
       String afterConvo="";
       Random r = new Random();

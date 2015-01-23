@@ -4,12 +4,10 @@ import java.util.ArrayList;
 import java.util.Random;
 
  public class Jimmy extends Boys{
-  
-     BaseChar c = new BaseChar();
-
-     public ArrayList<String>Likes=new ArrayList<String>();
-     public ArrayList<String>Dislikes = new ArrayList<String>();
-
+   
+     public Jimmy(int approval, int time){
+       super (approval, time){ 
+     }
      public String convo(){
       String afterConvo="";
       Random r = new Random();
@@ -25,22 +23,9 @@ import java.util.Random;
       }else{
 	  afterConvo = "You did really great today! Huh? No I wasnt watching you!";
       }
-      this.approval+= 1;
+      affection+= 1;
       return afterConvo;
       
      }
- 
-     public String gift(String item){
-	 String afterGift="";
-	 if (Likes.indexOf(item)!=-1){
-	     afterGift="Hey, you got this for me? I feel flattered.";
-	     this.approval = this.approval+20;
-	 }else{ afterGift ="Uh, no thanks, this is really not for me...";
-	     
-	     this.approval= this.approval-10;
-
-	 }
-	 c.energy=c.energy-55;
-	 return afterGift;
-     }
+ }
  }

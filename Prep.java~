@@ -1,5 +1,8 @@
   public class Prep extends Boys{
- 
+  
+    public Prep(int approval, int time){
+      super (approval, time){ 
+      }
       public String convo(){
       String afterConvo="";
       Random r = new Random();

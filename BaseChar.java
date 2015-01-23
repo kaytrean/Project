@@ -12,7 +12,7 @@ public class BaseChar{
     public boolean relationship=false;
     public int money=10;
     public int day=1;
-    public ArrayList<String> inventroy = new ArrayList<String>();
+    public ArrayList<String> inventory = new ArrayList<String>();
 
     public int getEnergy(){
 	return energy;
@@ -144,7 +144,9 @@ public class BaseChar{
 	    afterSleep="I feel well rested! Let's get this day started";
 	    return afterSleep;
     }
-    //more attractive the boy, the less affection gained
-    //boolean relationship = false
     
+    public void buy(String item){
+	if (money>0){
+	    inventory.add(item);
+    }
 }

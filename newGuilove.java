@@ -6,7 +6,11 @@ import java.util.Random;
 
 public class newGuilove extends JFrame implements ActionListener{
     BaseChar b = new BaseChar();
+    //Prep p = new Prep();
+    //Jimmy j=new Jimmy();
+    //shy s=new shy();
     private String newLine="\n";
+
     private Container pane;
     //Opening Sequence
     private JPanel panelOpening1,panelOpening2,panelOpening3, panelCharacter;
@@ -146,6 +150,25 @@ public class newGuilove extends JFrame implements ActionListener{
 	}else if (e.getSource()==btnHomeMap){
 	    panelMain.setVisible(true);
 	    panelHome.setVisible(false);
+	}//Buying things
+	else if (e.getSource()==btnTea){
+	    if(b.money-10>=0){
+		b.buy("Tea");
+		b.money=b.money-10;
+		storeTalk.append(newLine+"You bought tea!");
+		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
+	    }else{ storeTalk.append(newLine+"You dont have enough money!");
+		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
+	    }
+	}else if (e.getSource()==btnHoodie){
+	    if(b.money-26>=0){
+		b.buy("Hoodie");
+		b.money=b.money-26;
+		storeTalk.append(newLine+"You bought a hoodie!");
+		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
+	    }else{ storeTalk.append(newLine+"You dont have enough money!");
+		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
+	    }
 	}
     }
     public newGuilove(){
@@ -383,8 +406,10 @@ public class newGuilove extends JFrame implements ActionListener{
 	btnMug =new JButton("Mug: 7");
 	btnCologne = new JButton("Cologne: $25");
 	panelStore.add(btnTea);
+	btnTea.addActionListener(this);
 	panelStore.add(btnNovel);
 	panelStore.add(btnHoodie);
+	btnHoodie.addActionListener(this);
 	panelStore.add(btnWatch);
 	panelStore.add(btnPencil);
 	panelStore.add(btnDumbell);

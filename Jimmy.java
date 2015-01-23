@@ -13,7 +13,7 @@ import java.util.Random;
      Likes.add("Mug");
      Likes.add("Cologne");
      public ArrayList<String>Dislikes = new ArrayList<String>();
-     Dislikes.add("Dumbell","Flour","CD","Tea","Watch","Pencil");
+     Dislikes.add("Dumbell");
      Dislikes.add("Flour");
      Dislikes.add("CD");
      Dislikes.add("Tea");

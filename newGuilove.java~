@@ -6,7 +6,11 @@ import java.util.Random;
 
 public class newGuilove extends JFrame implements ActionListener{
     BaseChar b = new BaseChar();
+    //Prep p = new Prep();
+    //Jimmy j=new Jimmy();
+    //shy s=new shy();
     private String newLine="\n";
+
     private Container pane;
     //Opening Sequence
     private JPanel panelOpening1,panelOpening2,panelOpening3, panelCharacter;
@@ -24,6 +28,15 @@ public class newGuilove extends JFrame implements ActionListener{
     private JButton btnStore, btnTea, btnNovel, btnHoodie, btnWatch, btnPencil, btnDumbell, btnCD, btnFlour,btnMug, btnCologne;
     //conversations(and other text things)
     private JTextArea schoolConvo, gymConvo, parkConvo,storeTalk,homeWords,schoolWords,gymWords,parkWords;
+    /*private JScrollPane scroll = new JScrollPane(schoolConvo, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    private JScrollPane scroll1 = new JScrollPane(gymConvo, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    private JScrollPane scroll2 = new JScrollPane(parkConvo, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    private JScrollPane scroll3 = new JScrollPane(storeTalk, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    private JScrollPane scroll4 = new JScrollPane(homeWords, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    private JScrollPane scroll5 = new JScrollPane(schoolWords, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    private JScrollPane scroll6 = new JScrollPane(gymWords, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    private JScrollPane scroll7 = new JScrollPane(parkWords, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    */
     //Back to Map
     private JButton btnSchoolMap, btnSchoolHangoutMap;
     private JButton btnGymMap, btnGymHangoutMap;
@@ -101,12 +114,19 @@ public class newGuilove extends JFrame implements ActionListener{
 	}else if (e.getSource()==btnWorkout){
 	    gymWords.append(newLine+b.workout());
 	    gymWords.append(newLine+"Your strength level is now:"+b.getStrength());
+	    gymWords.append(newLine+"Your energy is now:"+b.getEnergy());
 	}else if (e.getSource()==btnStroll){
 	    parkWords.append(newLine+b.stroll());
 	    parkWords.append(newLine+"Your charisma level is now:"+b.getCharisma());
+	    parkWords.append(newLine+"Your energy is now:"+b.getEnergy());
 	}else if (e.getSource()==btnChores){
 	    homeWords.append(newLine+b.chores());
 	    homeWords.append(newLine+"You now have $"+b.getMoney()+" dollars");
+	    homeWords.append(newLine+"Your energy is now:"+b.getEnergy());
+	}else if (e.getSource()==btnSleep){
+	    homeWords.append(newLine+b.sleep());
+	    homeWords.append(newLine+"Your energy level is now: "+b.getEnergy());
+	    homeWords.append(newLine+"You now have "+(31-b.getDays())+" days left");
 	}
 	//back to map
 	else if (e.getSource()==btnSchoolHangoutMap){
@@ -130,13 +150,48 @@ public class newGuilove extends JFrame implements ActionListener{
 	}else if (e.getSource()==btnHomeMap){
 	    panelMain.setVisible(true);
 	    panelHome.setVisible(false);
-	}
+	}//Buying things
+	else if (e.getSource()==btnTea){
+	    if(b.money-10>=0){
+		b.buy("Tea");
+		b.money=b.money-10;
+		storeTalk.append(newLine+"You bought tea!");
+		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
+	    }else{ storeTalk.append(newLine+"You dont have enough money!");
+		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
+	    }
+	}else if (e.getSource()==btnHoodie){
+	    if(b.money-26>=0){
+		b.buy("Hoodie");
+		b.money=b.money-26;
+		storeTalk.append(newLine+"You bought a hoodie!");
+		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
+	    }else{ storeTalk.append(newLine+"You dont have enough money!");
+		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
+	    }
+	}else if (e.getSource()==btnNovel){
+	    if(b.money-15>=0){
+		b.buy("Romance Novel");
+		b.money=b.money-15;
+		storeTalk.append(newLine+"You bought a romance novel!");
+		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
+	    }else{ storeTalk.append(newLine+"You dont have enough money!");
+		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
+	    }
+	}else if (e.getSource()==btn){
+	    if(b.money-10>=0){
+		b.buy("Tea");
+		b.money=b.money-10;
+		storeTalk.append(newLine+"You bought tea!");
+		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
+	    }else{ storeTalk.append(newLine+"You dont have enough money!");
+		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
     }
     public newGuilove(){
         
 	setTitle("Match");
-	setLocation(100,100);
-	setSize(850,560);
+	setLocation(0,0);
+	setSize(950,660);
 	setDefaultCloseOperation(EXIT_ON_CLOSE);
 	
 	pane = getContentPane();
@@ -227,6 +282,7 @@ public class newGuilove extends JFrame implements ActionListener{
 	labelHome1=new JLabel(Home1);
 	panelHome.add(labelHome1);
 	btnSleep = new JButton("Sleep");
+	btnSleep.addActionListener(this);
 	btnChores=new JButton("Chores");
 	btnChores.addActionListener(this);
 	panelHome.add(btnSleep);
@@ -366,15 +422,25 @@ public class newGuilove extends JFrame implements ActionListener{
 	btnMug =new JButton("Mug: 7");
 	btnCologne = new JButton("Cologne: $25");
 	panelStore.add(btnTea);
+	btnTea.addActionListener(this);
 	panelStore.add(btnNovel);
+	btnNovel.addActionListener(this);
 	panelStore.add(btnHoodie);
+	btnHoodie.addActionListener(this);
 	panelStore.add(btnWatch);
+	btnWatch.addActionListener(this);
 	panelStore.add(btnPencil);
+	btnPencil.addActionListener(this);
 	panelStore.add(btnDumbell);
+	btnDumbell.addActionListener(this);
 	panelStore.add(btnCD);
+	btnCD.addActionListener(this);
 	panelStore.add(btnFlour);
+	btnFlour.addActionListener(this);
 	panelStore.add(btnMug);
+	btnMug.addActionListener(this);
 	panelStore.add(btnCologne);
+	btnCologne.addActionListener(this);
 	btnStoreMap=new JButton("Back to Map");
 	btnStoreMap.addActionListener(this);
 	panelStore.add(btnStoreMap);

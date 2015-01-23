@@ -8,11 +8,17 @@ import java.util.Random;
      BaseChar c = new BaseChar();
 
      public ArrayList<String>Likes=new ArrayList<String>();
-     Likes.add("");
-     Likes.add("");
-     Likes.add("");
+     Likes.add("Novel");
+     Likes.add("Hoodie");
+     Likes.add("Mug");
+     Likes.add("Cologne");
      public ArrayList<String>Dislikes = new ArrayList<String>();
-     Dislikes.add("Dumbell","Flour","CD","Tea","Watch","Pencil")
+     Dislikes.add("Dumbell","Flour","CD","Tea","Watch","Pencil");
+     Dislikes.add("Flour");
+     Dislikes.add("CD");
+     Dislikes.add("Tea");
+     Dislikes.add("Watch");
+     Dislikes.add("Pencil");
 
      public String convo(){
       String afterConvo="";

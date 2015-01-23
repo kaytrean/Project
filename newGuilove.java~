@@ -155,7 +155,7 @@ public class newGuilove extends JFrame implements ActionListener{
 	    if(b.money-10>=0){
 		b.buy("Tea");
 		b.money=b.money-10;
-		storeTalk.append(newLine+"You bought tea!");
+		storeTalk.append(newLine+"You bought some tea!");
 		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
 	    }else{ storeTalk.append(newLine+"You dont have enough money!");
 		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
@@ -178,15 +178,44 @@ public class newGuilove extends JFrame implements ActionListener{
 	    }else{ storeTalk.append(newLine+"You dont have enough money!");
 		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
 	    }
-	}else if (e.getSource()==btn){
+	}else if (e.getSource()==btnWatch){
 	    if(b.money-10>=0){
-		b.buy("Tea");
+		b.buy("Watch");
 		b.money=b.money-10;
-		storeTalk.append(newLine+"You bought tea!");
+		storeTalk.append(newLine+"You bought a watch!");
 		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
 	    }else{ storeTalk.append(newLine+"You dont have enough money!");
 		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
-    }
+	    }
+	}else if (e.getSource()==btnPencil){
+	    if(b.money-10>=0){
+		b.buy("Pencil");
+		b.money=b.money-10;
+		storeTalk.append(newLine+"You bought an over priced pencil!");
+		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
+	    }else{ storeTalk.append(newLine+"You dont have enough money!");
+		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
+	    }
+	}else if (e.getSource()==btnDumbell){
+	    if(b.money-10>=0){
+		b.buy("Dumbell");
+		b.money=b.money-10;
+		storeTalk.append(newLine+"You bought some dumbells!");
+		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
+	    }else{ storeTalk.append(newLine+"You dont have enough money!");
+		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
+	    }
+	}else if (e.getSource()==btnCD){
+	    if(b.money-10>=0){
+		b.buy("CD");
+		b.money=b.money-10;
+		storeTalk.append(newLine+"You bought a CD!");
+		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
+	    }else{ storeTalk.append(newLine+"You dont have enough money!");
+		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
+	    }
+	}
+	}
     public newGuilove(){
         
 	setTitle("Match");

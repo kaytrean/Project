@@ -34,9 +34,10 @@ public class newGuilove extends JFrame implements ActionListener{
     private JScrollPane scroll3 = new JScrollPane(storeTalk, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
     private JScrollPane scroll4 = new JScrollPane(homeWords, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
     private JScrollPane scroll5 = new JScrollPane(schoolWords, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-    private JScrollPane scroll6 = new JScrollPane(gymWords, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-    private JScrollPane scroll7 = new JScrollPane(parkWords, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
     */
+    private JScrollPane scroll6 = new JScrollPane(gymWords, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+    // private JScrollPane scroll7 = new JScrollPane(parkWords, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+   
     //Back to Map
     private JButton btnSchoolMap, btnSchoolHangoutMap;
     private JButton btnGymMap, btnGymHangoutMap;
@@ -215,6 +216,7 @@ public class newGuilove extends JFrame implements ActionListener{
 		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
 	    }
 	}
+	}
     public newGuilove(){
         
 	setTitle("Match");
@@ -375,6 +377,7 @@ public class newGuilove extends JFrame implements ActionListener{
 	gymWords = new JTextArea("What would you like to do?");
 	gymWords.setColumns(20);
 	gymWords.setRows(10);
+	panelGym.add(scroll6);
 	panelGym.add(gymWords);
 	//Gym Activities
 	panelGymHangout=new JPanel();

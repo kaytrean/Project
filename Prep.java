@@ -18,7 +18,20 @@
       affection+= 1;
       return afterConvo;
       
+      }
+      
+      public String gift(String item){
+	 String afterGift="";
+	 if (Likes.indexOf(item)!=-1){
+	     afterGift="I suppose I can accept this…";
+	     this.approval = this.approval+20;
+	 }else{ afterGift ="What is the meaning of this? Are you insulting me?";
+	     
+	     this.approval= this.approval-10;
+
+	 }
+	 c.energy=c.energy-55;
+	 return afterGift;
      }
- }
-}
-//use Togami pictures
+      
+  }

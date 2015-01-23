@@ -5,6 +5,10 @@ import java.util.Random;
 
  public class Shy extends Boys{
    
+ BaseChar c = new BaseChar();
+
+     public ArrayList<String>Likes=new ArrayList<String>();
+     public ArrayList<String>Dislikes = new ArrayList<String>();
  
      public String convo(){
       String afterConvo="";
@@ -25,5 +29,20 @@ import java.util.Random;
       return afterConvo;
       
      }
+     
+       public String gift(String item){
+	 String afterGift="";
+	 if (Likes.indexOf(item)!=-1){
+	     afterGift="This is for me? You’re too kind…";
+	     this.approval = this.approval+20;
+	 }else{ afterGift ="Um… no thanks...";
+	     
+	     this.approval= this.approval-10;
+
+	 }
+	 c.energy=c.energy-55;
+	 return afterGift;
+     }
+     
  }
- }
+ 

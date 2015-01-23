@@ -3,7 +3,17 @@
   	BaseChar c = new BaseChar();
 
      public ArrayList<String>Likes=new ArrayList<String>();
+     Likes.add("Watch");
+     Likes.add("Pencil");
+     Likes.add("Mug");
+     Likes.add("Cologne");
      public ArrayList<String>Dislikes = new ArrayList<String>();
+     Dislikes.add("Dumbell");
+     Dislikes.add("Flour");
+     Dislikes.add("CD");
+     Dislikes.add("Tea");
+     Dislikes.add("Hoodie");
+     Dislikes.add("Novel");
   	
       public String convo(){
       String afterConvo="";

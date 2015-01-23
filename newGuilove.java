@@ -169,7 +169,14 @@ public class newGuilove extends JFrame implements ActionListener{
 	    }else{ storeTalk.append(newLine+"You dont have enough money!");
 		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
 	    }
-	}
+	}else if (e.getSource()==btnNovel){
+	    if(b.money-15>=0){
+		b.buy("Romance Novel");
+		b.money=b.money-15;
+		storeTalk.append(newLine+"You bought a romance novel!");
+		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
+	    }else{ storeTalk.append(newLine+"You dont have enough money!");
+		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
     }
     public newGuilove(){
         
@@ -408,15 +415,23 @@ public class newGuilove extends JFrame implements ActionListener{
 	panelStore.add(btnTea);
 	btnTea.addActionListener(this);
 	panelStore.add(btnNovel);
+	btnNovel.addActionListener(this);
 	panelStore.add(btnHoodie);
 	btnHoodie.addActionListener(this);
 	panelStore.add(btnWatch);
+	btnWatch.addActionListener(this);
 	panelStore.add(btnPencil);
+	btnPencil.addActionListener(this);
 	panelStore.add(btnDumbell);
+	btnDumbell.addActionListener(this);
 	panelStore.add(btnCD);
+	btnCD.addActionListener(this);
 	panelStore.add(btnFlour);
+	btnFlour.addActionListener(this);
 	panelStore.add(btnMug);
+	btnMug.addActionListener(this);
 	panelStore.add(btnCologne);
+	btnCologne.addActionListener(this);
 	btnStoreMap=new JButton("Back to Map");
 	btnStoreMap.addActionListener(this);
 	panelStore.add(btnStoreMap);

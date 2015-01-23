@@ -8,7 +8,11 @@ import java.util.Random;
      BaseChar c = new BaseChar();
 
      public ArrayList<String>Likes=new ArrayList<String>();
+     Likes.add("");
+     Likes.add("");
+     Likes.add("");
      public ArrayList<String>Dislikes = new ArrayList<String>();
+     Dislikes.add("Dumbell","Flour","CD","Tea","Watch","Pencil")
 
      public String convo(){
       String afterConvo="";

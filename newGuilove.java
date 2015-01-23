@@ -177,6 +177,15 @@ public class newGuilove extends JFrame implements ActionListener{
 		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
 	    }else{ storeTalk.append(newLine+"You dont have enough money!");
 		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
+	    }
+	}else if (e.getSource()==btn){
+	    if(b.money-10>=0){
+		b.buy("Tea");
+		b.money=b.money-10;
+		storeTalk.append(newLine+"You bought tea!");
+		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
+	    }else{ storeTalk.append(newLine+"You dont have enough money!");
+		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
     }
     public newGuilove(){
         

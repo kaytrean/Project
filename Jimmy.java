@@ -8,18 +8,21 @@ import java.util.Random;
      BaseChar c = new BaseChar();
 
      public ArrayList<String>Likes=new ArrayList<String>();
-     Likes.add("Novel");
-     Likes.add("Hoodie");
-     Likes.add("Mug");
-     Likes.add("Cologne");
      public ArrayList<String>Dislikes = new ArrayList<String>();
-     Dislikes.add("Dumbell");
-     Dislikes.add("Flour");
-     Dislikes.add("CD");
-     Dislikes.add("Tea");
-     Dislikes.add("Watch");
-     Dislikes.add("Pencil");
+   
 
+     public Jimmy(){
+	 Likes.add("Novel");
+	 Likes.add("Hoodie");
+	 Likes.add("Mug");
+	 Likes.add("Cologne");
+	 Dislikes.add("Dumbell");
+	 Dislikes.add("Flour");
+	 Dislikes.add("CD");
+	 Dislikes.add("Tea");
+	 Dislikes.add("Watch");
+	 Dislikes.add("Pencil");
+     }
      public String convo(){
       String afterConvo="";
       Random r = new Random();
@@ -42,14 +45,16 @@ import java.util.Random;
  
      public String gift(String item){
 	 String afterGift="";
-	 if (Likes.indexOf(item)!=-1){
-	     afterGift="Hey, you got this for me? I feel flattered.";
-	     this.approval = this.approval+20;
-	 }else{ afterGift ="Uh, no thanks, this is really not for me...";
-	     
-	     this.approval= this.approval-10;
+	 if (this.approval!=0){
+	     if (Likes.indexOf(item)!=-1){
+		 afterGift="Hey, you got this for me? I feel flattered.";
+		 this.approval = this.approval+20;
+	     }else{ afterGift ="Uh, no thanks, this is really not for me...";
+		 
+		 this.approval= this.approval-10;
 
-	 }
+	     }c.inventory.remove(item);
+	 }else afterGift="What no! stanger danger!!";
 	 c.energy=c.energy-55;
 	 return afterGift;
      }

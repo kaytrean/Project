@@ -32,6 +32,15 @@ public class BaseChar{
     public int getDays(){
     	return day;
     }
+    public String getInventory(){
+	for(int x=0;x<=inventory.size()+1;x++){
+	    return inventory.get(x);
+	} return "";
+    }
+     public void buy(String item){
+	    inventory.add(item);
+    }
+}
     
     
     public String learning(){
@@ -145,8 +154,4 @@ public class BaseChar{
 	    return afterSleep;
     }
     
-    public void buy(String item){
-	if (money>0){
-	    inventory.add(item);
-    }
-}
+   

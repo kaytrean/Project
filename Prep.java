@@ -1,5 +1,10 @@
   public class Prep extends Boys{
- 
+  	
+  	BaseChar c = new BaseChar();
+
+     public ArrayList<String>Likes=new ArrayList<String>();
+     public ArrayList<String>Dislikes = new ArrayList<String>();
+  	
       public String convo(){
       String afterConvo="";
       Random r = new Random();

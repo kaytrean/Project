@@ -35,7 +35,7 @@ public class newGuilove extends JFrame implements ActionListener{
     private JScrollPane scroll4 = new JScrollPane(homeWords, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
     private JScrollPane scroll5 = new JScrollPane(schoolWords, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
     */
-    private JScrollPane scroll6 = new JScrollPane(gymWords, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+    // private JScrollPane scroll6 = new JScrollPane(gymWords, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
     // private JScrollPane scroll7 = new JScrollPane(parkWords, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
    
     //Back to Map
@@ -158,7 +158,7 @@ public class newGuilove extends JFrame implements ActionListener{
 		b.money=b.money-10;
 		storeTalk.append(newLine+"You bought some tea!");
 		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
-		//storeTalk.append(newLine+"You now have "+b.getInventory()+" in your bag");
+		storeTalk.append(newLine+"You now have "+b.getInventory()+" in your bag");
 	    }else{ storeTalk.append(newLine+"You dont have enough money!");
 		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
 	    }
@@ -168,7 +168,7 @@ public class newGuilove extends JFrame implements ActionListener{
 		b.money=b.money-26;
 		storeTalk.append(newLine+"You bought a hoodie!");
 		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
-		//storeTalk.append(newLine+"You now have "+b.getInventory()+" in your bag");
+		storeTalk.append(newLine+"You now have "+b.getInventory()+" in your bag");
 	    }else{ storeTalk.append(newLine+"You dont have enough money!");
 		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
 	    }
@@ -178,7 +178,7 @@ public class newGuilove extends JFrame implements ActionListener{
 		b.money=b.money-15;
 		storeTalk.append(newLine+"You bought a romance novel!");
 		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
-		//storeTalk.append(newLine+"You now have "+b.getInventory()+" in your bag");
+		storeTalk.append(newLine+"You now have "+b.getInventory()+" in your bag");
 	    }else{ storeTalk.append(newLine+"You dont have enough money!");
 		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
 	    }
@@ -188,7 +188,7 @@ public class newGuilove extends JFrame implements ActionListener{
 		b.money=b.money-90;
 		storeTalk.append(newLine+"You bought a watch!");
 		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
-		//storeTalk.append(newLine+"You now have "+b.getInventory()+" in your bag");
+		storeTalk.append(newLine+"You now have "+b.getInventory()+" in your bag");
 	    }else{ storeTalk.append(newLine+"You dont have enough money!");
 		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
 	    }
@@ -198,7 +198,7 @@ public class newGuilove extends JFrame implements ActionListener{
 		b.money=b.money-9;
 		storeTalk.append(newLine+"You bought an over priced pencil!");
 		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
-		//	storeTalk.append(newLine+"You now have "+b.getInventory()+" in your bag");
+		storeTalk.append(newLine+"You now have "+b.getInventory()+" in your bag");
 	    }else{ storeTalk.append(newLine+"You dont have enough money!");
 		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
 	    }
@@ -208,7 +208,7 @@ public class newGuilove extends JFrame implements ActionListener{
 		b.money=b.money-15;
 		storeTalk.append(newLine+"You bought some dumbells!");
 		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
-		//storeTalk.append(newLine+"You now have "+b.getInventory()+" in your bag");
+		storeTalk.append(newLine+"You now have "+b.getInventory()+" in your bag");
 	    }else{ storeTalk.append(newLine+"You dont have enough money!");
 		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
 	    }
@@ -218,7 +218,7 @@ public class newGuilove extends JFrame implements ActionListener{
 		b.money=b.money-9;
 		storeTalk.append(newLine+"You bought a CD!");
 		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
-		//storeTalk.append(newLine+"You now have "+b.getInventory()+" in your bag");
+		storeTalk.append(newLine+"You now have "+b.getInventory()+" in your bag");
 	    }else{ storeTalk.append(newLine+"You dont have enough money!");
 		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
 	    }
@@ -228,7 +228,7 @@ public class newGuilove extends JFrame implements ActionListener{
 		b.money=b.money-5;
 		storeTalk.append(newLine+"You bought some flour!");
 		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
-		//storeTalk.append(newLine+"You now have "+b.getInventory()+" in your bag");
+		storeTalk.append(newLine+"You now have "+b.getInventory()+" in your bag");
 	    }else{ storeTalk.append(newLine+"You dont have enough money!");
 		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
 	    }
@@ -238,7 +238,7 @@ public class newGuilove extends JFrame implements ActionListener{
 		b.money=b.money-7;
 		storeTalk.append(newLine+"You bought a mug!");
 		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
-		//storeTalk.append(newLine+"You now have "+b.getInventory()+" in your bag");
+		storeTalk.append(newLine+"You now have "+b.getInventory()+" in your bag");
 	    }else{ storeTalk.append(newLine+"You dont have enough money!");
 		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
 	    }
@@ -248,20 +248,18 @@ public class newGuilove extends JFrame implements ActionListener{
 		b.money=b.money-25;
 		storeTalk.append(newLine+"You bought cologne!");
 		storeTalk.append(newLine+"You now have $"+b.getMoney()+" dollars");
-		//storeTalk.append(newLine+"You now have "+b.getInventory()+" in your bag");
+		storeTalk.append(newLine+"You now have "+b.getInventory()+" in your bag");
 	    }else{ storeTalk.append(newLine+"You dont have enough money!");
 		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
 	    }
 	}
-<<<<<<< HEAD
-	}
-=======
-	else if (e.getSource()==btnGGift){
+    
+	/*else if (e.getSource()==btnGGift){
 	    gymConvo.append(newLine+"What would you like to give?");
 	    gymConvo.append()
 	    j.gift()
+	    }*/
     }
->>>>>>> origin/master
     public newGuilove(){
         
 	setTitle("Match");
@@ -422,7 +420,7 @@ public class newGuilove extends JFrame implements ActionListener{
 	gymWords = new JTextArea("What would you like to do?");
 	gymWords.setColumns(20);
 	gymWords.setRows(10);
-	panelGym.add(scroll6);
+	//panelGym.add(scroll6);
 	panelGym.add(gymWords);
 	//Gym Activities
 	panelGymHangout=new JPanel();

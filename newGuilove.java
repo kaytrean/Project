@@ -301,12 +301,32 @@ public class newGuilove extends JFrame implements ActionListener{
 		gymConvo.append(newLine+"Your energy is now: "+b.getEnergy());
 	    }else gymConvo.append(newLine+" You don't have enough energy! It is now: "+b.getEnergy());
 	}else if (e.getSource()==btnPTalk){
-	    if (b.getEnergy()>=55){
-		parkConvo.append(newLine+s.convo());
-		b.energy=b.energy-55;
-		parkConvo.append(newLine+"Your energy is now: "+b.getEnergy());
-	    }else parkConvo.append(newLine+" You don't have enough energy! It is now: "+b.getEnergy());
-	}
+	    if (b.getEnergy()>=50){
+		if (s.approval<20){
+		    parkConvo.append(newLine+s.convo());
+		}else if(p.approval<35){
+		    Random k = new Random();
+		    int i=k.nextInt(2)+1;
+		    if (i==2){
+			parkConvo.append(newLine+s.specialConvo1());
+		    }else{parkConvo.append(newLine+s.convo());
+		    }
+		}
+		    else { 
+			Random t = new Random();
+			int u =t.nextInt(4)+1;
+			if(u>2){
+			    parkConvo.append(newLine+s.specialConvo2());
+			}else if (u==2){
+			    parkConvo.append(newLine+s.specialConvo1());
+			}else {parkConvo.append(newLine+s.convo());
+			}
+		    }
+	    } b.energy=b.energy-50;
+		    parkConvo.append(newLine+"Your energy is now: "+b.getEnergy());
+	}else {parkConvo.append(newLine+" You don't have enough energy! It is now: "+b.getEnergy());
+    }
+	
     }
     public newGuilove(){
         

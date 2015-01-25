@@ -44,17 +44,21 @@ import java.util.Random;
       
  public String gift(String item){
 	 String afterGift="";
-	 if (this.approval!=0){
-	     if (Likes.indexOf(item)!=-1){
-		 afterGift="Landon: I suppose I can accept this…";
-		 this.approval = this.approval+20;
-	     }else{ afterGift ="Landon: What is the meaning of this? Are you insulting me? \n ~*I suppose he doesn't like that very much*~";
-		 
-		 this.approval= this.approval-10;
-
-	     }c.inventory.remove(item);
-	 }else afterGift="Landon: What are you doing? Do I even know you? \n ~(You must speak to them at least once before you can gift!)~";
-	 c.energy=c.energy-55;
-	 return afterGift;
-     }
+	 if(c.getEnergy()>=55){
+	     if (this.approval!=0){
+		 if (Likes.indexOf(item)!=-1){
+		     afterGift="Landon: I suppose I can accept this...";
+		     this.approval = this.approval+20;
+		 }else{ afterGift ="Landon: What is the meaning of this? Are you insulting me? \n ~*I suppose he doesn't like that very much*~";
+		     this.approval= this.approval-10;
+		 }c.inventory.remove(item);
+	     }else{ 
+		 afterGift="Landon: What are you doing? Do I even know you? \n ~(You must speak to them at least once before you can gift!)~";
+		 c.energy=c.energy-55;
+		 return afterGift;
+	     }
+	 }else{
+	     afterGift= "I think i've had enough for the day, I should sleep";
+	 }return afterGift;
+ }
  }

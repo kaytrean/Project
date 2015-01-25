@@ -276,7 +276,10 @@ public class newGuilove extends JFrame implements ActionListener{
 	   }
 	   parkConvo.append(newLine+"Your energy is now: "+b.getEnergy());
 	}//talking (OMG FINALLY RIGHT LOL)
-	
+	else if (e.getSource()==btnSTalk){
+	    schoolConvo.append(newLine+p.convo());
+	    schoolConvo.append(" "+ b.getEnergy());
+	}
     }
     public newGuilove(){
         
@@ -409,6 +412,7 @@ public class newGuilove extends JFrame implements ActionListener{
 	labelSchool2= new JLabel(School2);
 	panelSchoolHangout.add(labelSchool2);
 	btnSTalk =new JButton("Talk");
+	btnSTalk.addActionListener(this);
        	btnSGift =new JButton("Gift");
 	panelSchoolHangout.add(btnSTalk);
 	panelSchoolHangout.add(btnSGift);

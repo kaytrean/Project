@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.Random;
 
  public class Jimmy extends Boys{
-  
-     BaseChar c = new BaseChar();
 
      public ArrayList<String>Likes=new ArrayList<String>();
      public ArrayList<String>Dislikes = new ArrayList<String>();
@@ -48,15 +46,12 @@ import java.util.Random;
 	 String afterGift="";
 	 if (this.approval!=0){
 	     if (Likes.indexOf(item)!=-1){
-		 afterGift="Jimmy: Hey, you got this for me? I feel flattered.";
+		 afterGift="Jimmy: Hey, you got this for me? I feel flattered.";		 
 		 this.approval = this.approval+20;
 	     }else{ afterGift ="Jimmy: Uh, no thanks, this is really not for me...\n ~*I suppose he doesn't like that very much*~";
-		 
 		 this.approval= this.approval-10;
-
-	     }c.inventory.remove(item);
+	     }
 	 }else afterGift="Jimmy: What no! Who do you think you are? \n ~(You must speak to them at least once before you can gift!)~";
-	 c.energy=c.energy-55;
 	 return afterGift;
      }
  }

@@ -157,6 +157,6 @@ public class BaseChar{
 	    afterSleep="I feel well rested! Let's get this day started";
 	    return afterSleep;
     }
-   
+
 }
 

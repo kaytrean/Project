@@ -255,30 +255,57 @@ public class newGuilove extends JFrame implements ActionListener{
 	}//Giving things
     
 	else if (e.getSource()==btnGGift){
-	   String input = JOptionPane.showInputDialog("What would you like to give:" + b.inventory);
-	   if (b.inventory.indexOf(input)!= -1){
-	       gymConvo.append(newLine+j.gift(input));
-	   }else {gymConvo.append(newLine+"~*WHOOPS! You don't have that in your invetory!*~");
-	   }
-	   gymConvo.append(newLine+"Your energy is now: "+b.getEnergy());
+	    if(b.getEnergy()>=55){
+		String input = JOptionPane.showInputDialog("What would you like to give:" + b.inventory);
+		if (b.inventory.indexOf(input)!= -1){
+		    gymConvo.append(newLine+j.gift(input));
+		}else {gymConvo.append(newLine+"~*WHOOPS! You don't have that in your invetory!*~");
+		}
+		b.energy=b.energy-55;
+		b.inventory.remove(input);
+		gymConvo.append(newLine+"Your energy is now: "+b.getEnergy());
+	    }else gymConvo.append(newLine+"You don't have enough energy! It is now: "+ b.getEnergy());
 	}else if (e.getSource()==btnSGift){
-	   String input = JOptionPane.showInputDialog("What would you like to give:" + b.inventory);
-	   if (b.inventory.indexOf(input)!= -1){
-	       schoolConvo.append(newLine+p.gift(input));
-	   }else {schoolConvo.append(newLine+"~*WHOOPS! You don't have that in your invetory!*~");
-	   }
-	   schoolConvo.append(newLine+"Your energy is now: "+b.getEnergy());
+	    if(b.getEnergy()>=55){
+		String input = JOptionPane.showInputDialog("What would you like to give:" + b.inventory);
+		if (b.inventory.indexOf(input)!= -1){
+		    schoolConvo.append(newLine+p.gift(input));
+		}else {schoolConvo.append(newLine+"~*WHOOPS! You don't have that in your invetory!*~");
+		}
+		b.energy=b.energy-55;
+		b.inventory.remove(input);
+		schoolConvo.append(newLine+"Your energy is now: "+b.getEnergy());
+	    }else schoolConvo.append(newLine+"You don't have enough energy! It is now: "+ b.getEnergy());
 	}else if (e.getSource()==btnPGift){
+	    if(b.getEnergy()>=55){
 	   String input = JOptionPane.showInputDialog("What would you like to give:" + b.inventory);
 	   if (b.inventory.indexOf(input)!= -1){
 	       parkConvo.append(newLine+s.gift(input));
 	   }else {parkConvo.append(newLine+"~*WHOOPS! You don't have that in your invetory!*~");
 	   }
-	   parkConvo.append(newLine+"Your energy is now: "+b.getEnergy());
+	   	b.energy=b.energy-55;
+		b.inventory.remove(input);
+		parkConvo.append(newLine+"Your energy is now: "+b.getEnergy());
+	    }else parkConvo.append(newLine+"You don't have enough energy! It is now: "+ b.getEnergy());
 	}//talking (OMG FINALLY RIGHT LOL)
 	else if (e.getSource()==btnSTalk){
-	    schoolConvo.append(newLine+p.convo());
-	    schoolConvo.append(" "+ b.getEnergy());
+	    if (b.getEnergy()>=55){
+		schoolConvo.append(newLine+p.convo());
+		b.energy=b.energy-55;
+		schoolConvo.append(newLine+"Your energy is now: "+b.getEnergy());
+	    }else schoolConvo.append(newLine+" You don't have enough energy! It is now: "+b.getEnergy());
+	}else if (e.getSource()==btnGTalk){
+	    if (b.getEnergy()>=55){
+		gymConvo.append(newLine+j.convo());
+		b.energy=b.energy-55;
+		gymConvo.append(newLine+"Your energy is now: "+b.getEnergy());
+	    }else gymConvo.append(newLine+" You don't have enough energy! It is now: "+b.getEnergy());
+	}else if (e.getSource()==btnPTalk){
+	    if (b.getEnergy()>=55){
+		parkConvo.append(newLine+s.convo());
+		b.energy=b.energy-55;
+		parkConvo.append(newLine+"Your energy is now: "+b.getEnergy());
+	    }else parkConvo.append(newLine+" You don't have enough energy! It is now: "+b.getEnergy());
 	}
     }
     public newGuilove(){
@@ -386,6 +413,7 @@ public class newGuilove extends JFrame implements ActionListener{
 	panelHome.add(btnHomeMap);
 	homeWords = new JTextArea("What would you like to do?");
 	panelHome.add(homeWords);
+	homeWords.setColumns(40);
 	//school
 	panelSchool=new JPanel();
 	pane.add(panelSchool);
@@ -453,6 +481,7 @@ public class newGuilove extends JFrame implements ActionListener{
 	labelGym2= new JLabel(Gym2);
 	panelGymHangout.add(labelGym2);
 	btnGTalk =new JButton("Talk");
+	btnGTalk.addActionListener(this);
        	btnGGift =new JButton("Gift");
 	panelGymHangout.add(btnGTalk);
 	panelGymHangout.add(btnGGift);
@@ -493,10 +522,11 @@ public class newGuilove extends JFrame implements ActionListener{
 	labelPark2=new JLabel(Park2);
 	panelParkHangout.add(labelPark2);
 	btnPTalk =new JButton("Talk");
+	btnPTalk.addActionListener(this);
        	btnPGift =new JButton("Gift");
+	btnPGift.addActionListener(this);
 	panelParkHangout.add(btnPTalk);
 	panelParkHangout.add(btnPGift);
-	btnPGift.addActionListener(this);
 	btnParkHangoutMap=new JButton("Back to Map");
 	btnParkHangoutMap.addActionListener(this);
 	panelParkHangout.add(btnParkHangoutMap);

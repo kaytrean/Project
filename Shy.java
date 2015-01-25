@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Random;
 
  public class Shy extends Boys{
-   
- BaseChar c = new BaseChar();
 
      public ArrayList<String>Likes=new ArrayList<String>();
      public ArrayList<String>Dislikes = new ArrayList<String>();
@@ -27,15 +25,15 @@ import java.util.Random;
       Random r = new Random();
       int n = r.nextInt(5)+1;
       if (n == 5){
-       afterConvo = "The sun is very bright today.";
+       afterConvo = "Harry: The sun is very bright today.";
       }else if (n == 4){
-       afterConvo = "Yes?";
+       afterConvo = "Harry: Yes?";
       }else if (n == 3){
-	  afterConvo = "There are many trees here";
+	  afterConvo = "Harry: There are many trees here";
       }else if (n == 2){
-	  afterConvo = "No... you are not bothering me...";
+	  afterConvo = "Harry: No... you are not bothering me...";
       }else{
-	  afterConvo = "People eat food in the park? Whatever for? What are picnics?";
+	  afterConvo = "Harry: People eat food in the park? Whatever for? What are picnics?";
       }
      approval+= 1;
       return afterConvo;
@@ -49,12 +47,9 @@ import java.util.Random;
 		 afterGift="Harry: This is for me? You’re too kind…";
 		 this.approval = this.approval+20;
 	     }else{ afterGift ="Harry: Um… no thanks...\n ~*I suppose he doesn't like that very much*~";
-		 
 		 this.approval= this.approval-10;
-
-	     }c.inventory.remove(item);
-	 }else afterGift="Harry: What no! STRANGER DANGER, PLEASE LEAVE ME ALONE! \n ~(You must speak to them at least once before you can gift!)~";
-	 c.energy=c.energy-55;
+	     }
+	 }else afterGift="Harry: What no! STRANGER DANGER! PLEASE LEAVE ME ALONE! \n ~(You must speak to them at least once before you can gift!)~";
 	 return afterGift;
      }
  }

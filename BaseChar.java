@@ -35,7 +35,10 @@ public class BaseChar{
     public String getInventory(){
 	String s="";
 	for(int x=0;x<inventory.size();x++){
-	   s= s +  inventory.get(x)+", ";
+	    if (x>0){
+		s=s+", ";
+	    }else s=s;
+		s= s +  inventory.get(x);
 	} return s;
     }
      public void buy(String item){

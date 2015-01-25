@@ -1,14 +1,15 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import javax.swing.JScrollPane;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class newGuilove extends JFrame implements ActionListener{
     BaseChar b = new BaseChar();
-    //Prep p = new Prep();
+    Prep p = new Prep();
     Jimmy j=new Jimmy();
-    //shy s=new shy();
+    Shy s=new Shy();
     private String newLine="\n";
 
     private Container pane;
@@ -27,17 +28,16 @@ public class newGuilove extends JFrame implements ActionListener{
     private JButton btnPark,btnPHangout, btnStroll, btnPTalk, btnPGift;
     private JButton btnStore, btnTea, btnNovel, btnHoodie, btnWatch, btnPencil, btnDumbell, btnCD, btnFlour,btnMug, btnCologne;
     //conversations(and other text things)
-    private JTextArea schoolConvo, gymConvo, parkConvo,storeTalk,homeWords,schoolWords,gymWords,parkWords;
-    /*private JScrollPane scroll = new JScrollPane(schoolConvo, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-    private JScrollPane scroll1 = new JScrollPane(gymConvo, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-    private JScrollPane scroll2 = new JScrollPane(parkConvo, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-    private JScrollPane scroll3 = new JScrollPane(storeTalk, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-    private JScrollPane scroll4 = new JScrollPane(homeWords, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-    private JScrollPane scroll5 = new JScrollPane(schoolWords, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    JTextArea schoolConvo, gymConvo, parkConvo,storeTalk,homeWords,schoolWords,gymWords,parkWords;
+    /* JScrollPane scroll = new JScrollPane(schoolConvo, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    JScrollPane scroll1 = new JScrollPane(gymConvo, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    JScrollPane scroll2 = new JScrollPane(parkConvo, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    JScrollPane scroll3 = new JScrollPane(storeTalk, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    JScrollPane scroll4 = new JScrollPane(homeWords, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    JScrollPane scroll5 = new JScrollPane(schoolWords, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    JScrollPane scroll6 = new JScrollPane(gymWords,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    JScrollPane scroll7 = new JScrollPane(parkWords, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
     */
-    // private JScrollPane scroll6 = new JScrollPane(gymWords, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-    // private JScrollPane scroll7 = new JScrollPane(parkWords, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-   
     //Back to Map
     private JButton btnSchoolMap, btnSchoolHangoutMap;
     private JButton btnGymMap, btnGymHangoutMap;
@@ -252,13 +252,31 @@ public class newGuilove extends JFrame implements ActionListener{
 	    }else{ storeTalk.append(newLine+"You dont have enough money!");
 		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
 	    }
-	}
+	}//Giving things
     
-	/*else if (e.getSource()==btnGGift){
-	    gymConvo.append(newLine+"What would you like to give?");
-	    gymConvo.append()
-	    j.gift()
-	    }*/
+	else if (e.getSource()==btnGGift){
+	   String input = JOptionPane.showInputDialog("What would you like to give:" + b.inventory);
+	   if (b.inventory.indexOf(input)!= -1){
+	       gymConvo.append(newLine+j.gift(input));
+	   }else {gymConvo.append(newLine+"~*WHOOPS! You don't have that in your invetory!*~");
+	   }
+	   gymConvo.append(newLine+"Your energy is now: "+b.getEnergy());
+	}else if (e.getSource()==btnSGift){
+	   String input = JOptionPane.showInputDialog("What would you like to give:" + b.inventory);
+	   if (b.inventory.indexOf(input)!= -1){
+	       schoolConvo.append(newLine+p.gift(input));
+	   }else {schoolConvo.append(newLine+"~*WHOOPS! You don't have that in your invetory!*~");
+	   }
+	   schoolConvo.append(newLine+"Your energy is now: "+b.getEnergy());
+	}else if (e.getSource()==btnPGift){
+	   String input = JOptionPane.showInputDialog("What would you like to give:" + b.inventory);
+	   if (b.inventory.indexOf(input)!= -1){
+	       parkConvo.append(newLine+s.gift(input));
+	   }else {parkConvo.append(newLine+"~*WHOOPS! You don't have that in your invetory!*~");
+	   }
+	   parkConvo.append(newLine+"Your energy is now: "+b.getEnergy());
+	}//talking (OMG FINALLY RIGHT LOL)
+	
     }
     public newGuilove(){
         
@@ -394,10 +412,11 @@ public class newGuilove extends JFrame implements ActionListener{
        	btnSGift =new JButton("Gift");
 	panelSchoolHangout.add(btnSTalk);
 	panelSchoolHangout.add(btnSGift);
+	btnSGift.addActionListener(this);
 	btnSchoolHangoutMap=new JButton("Back to Map");
 	btnSchoolHangoutMap.addActionListener(this);
 	panelSchoolHangout.add(btnSchoolHangoutMap);
-	schoolConvo = new JTextArea("This is Landon, he's really smart, and cute too i guess... \n ~What would you like to do?~");
+	schoolConvo = new JTextArea("This is Landon, he's really smart, and cute too i guess... \n ~*What would you like to do?*~");
 	schoolConvo.setColumns(20);
 	schoolConvo.setRows(10);
 	panelSchoolHangout.add(schoolConvo);
@@ -420,7 +439,7 @@ public class newGuilove extends JFrame implements ActionListener{
 	gymWords = new JTextArea("What would you like to do?");
 	gymWords.setColumns(20);
 	gymWords.setRows(10);
-	//panelGym.add(scroll6);
+	//add(scroll6);
 	panelGym.add(gymWords);
 	//Gym Activities
 	panelGymHangout=new JPanel();
@@ -433,12 +452,14 @@ public class newGuilove extends JFrame implements ActionListener{
        	btnGGift =new JButton("Gift");
 	panelGymHangout.add(btnGTalk);
 	panelGymHangout.add(btnGGift);
+	btnGGift.addActionListener(this);
 	btnGymHangoutMap=new JButton("Back to Map");
 	btnGymHangoutMap.addActionListener(this);
 	panelGymHangout.add(btnGymHangoutMap);
-	gymConvo = new JTextArea("This is Jimmy, he's captain of the swim team, fencing team, and gymnatics team \n Wow, athletic AND cute. \n ~What would you like to do?~");
+	gymConvo = new JTextArea("This is Jimmy, he's captain of the swim team, fencing team, and gymnatics team \n Wow, athletic AND cute. \n ~*What would you like to do?*~");
 	gymConvo.setColumns(20);
 	gymConvo.setRows(10);
+	//panelGym.add(scroll6);
 	panelGymHangout.add(gymConvo);
 	//Park
 	panelPark=new JPanel();
@@ -471,10 +492,11 @@ public class newGuilove extends JFrame implements ActionListener{
        	btnPGift =new JButton("Gift");
 	panelParkHangout.add(btnPTalk);
 	panelParkHangout.add(btnPGift);
+	btnPGift.addActionListener(this);
 	btnParkHangoutMap=new JButton("Back to Map");
 	btnParkHangoutMap.addActionListener(this);
 	panelParkHangout.add(btnParkHangoutMap);
-	parkConvo = new JTextArea("This is Harry, he's pretty quiet, around school he usually reads or listens to music \n by himself in the courtyard. He seems nice \n Maybe I should get to know him better. \n ~What would you like to do?~");
+	parkConvo = new JTextArea("This is Harry, he's pretty quiet, around school he usually reads or listens to music \n by himself in the courtyard. He seems nice \n Maybe I should get to know him better. \n ~*What would you like to do?*~");
 	parkConvo.setColumns(20);
 	parkConvo.setRows(10);
 	panelParkHangout.add(parkConvo);

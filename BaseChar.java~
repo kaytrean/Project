@@ -33,14 +33,15 @@ public class BaseChar{
     	return day;
     }
     public String getInventory(){
-	for(int x=0;x<=inventory.size()+1;x++){
-	    return inventory.get(x);
-	} return "";
+	String s="";
+	for(int x=0;x<inventory.size();x++){
+	   s= s +  inventory.get(x)+", ";
+	} return s;
     }
      public void buy(String item){
 	    inventory.add(item);
     }
-}
+
     
     
     public String learning(){
@@ -153,14 +154,6 @@ public class BaseChar{
 	    afterSleep="I feel well rested! Let's get this day started";
 	    return afterSleep;
     }
-    
-<<<<<<< HEAD
-    public void buy(String item){
-	if (money>0){
-	    inventory.add(item);
-    }
-}
-}
-=======
    
->>>>>>> origin/master
+}
+

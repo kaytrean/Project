@@ -8,17 +8,19 @@ import java.util.Random;
  BaseChar c = new BaseChar();
 
      public ArrayList<String>Likes=new ArrayList<String>();
-     Likes.add("CD");
-     Likes.add("Tea");
-     Likes.add("Mug");
-     Likes.add("Cologne");
      public ArrayList<String>Dislikes = new ArrayList<String>();
-     Dislikes.add("Dumbell");
-     Dislikes.add("Flour");
-     Dislikes.add("Hoodie");
-     Dislikes.add("Novel");
-     Dislikes.add("Watch");
-     Dislikes.add("Pencil");
+     public Shy(){
+	 Likes.add("CD");
+	 Likes.add("Tea");
+	 Likes.add("Mug");
+	 Likes.add("Cologne");
+	 Dislikes.add("Dumbell");
+	 Dislikes.add("Flour");
+	 Dislikes.add("Hoodie");
+	 Dislikes.add("Novel");
+	 Dislikes.add("Watch");
+	 Dislikes.add("Pencil");
+     }
  
      public String convo(){
       String afterConvo="";
@@ -35,24 +37,25 @@ import java.util.Random;
       }else{
 	  afterConvo = "People eat food in the park? Whatever for? What are picnics?";
       }
-      affection+= 1;
+     approval+= 1;
       return afterConvo;
       
      }
      
-       public String gift(String item){
+        public String gift(String item){
 	 String afterGift="";
-	 if (Likes.indexOf(item)!=-1){
-	     afterGift="This is for me? You’re too kind…";
-	     this.approval = this.approval+20;
-	 }else{ afterGift ="Um… no thanks...";
-	     
-	     this.approval= this.approval-10;
+	 if (this.approval!=0){
+	     if (Likes.indexOf(item)!=-1){
+		 afterGift="Harry: This is for me? You’re too kind…";
+		 this.approval = this.approval+20;
+	     }else{ afterGift ="Harry: Um… no thanks...\n ~*I suppose he doesn't like that very much*~";
+		 
+		 this.approval= this.approval-10;
 
-	 }
+	     }c.inventory.remove(item);
+	 }else afterGift="Harry: What no! STRANGER DANGER, PLEASE LEAVE ME ALONE! \n ~(You must speak to them at least once before you can gift!)~";
 	 c.energy=c.energy-55;
 	 return afterGift;
      }
-     
  }
- 
+

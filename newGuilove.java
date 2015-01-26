@@ -660,8 +660,4 @@ public class newGuilove extends JFrame implements ActionListener{
 	panelStore.add(storeTalk);
     }
 
-    public static void main(String args[]){
-	newGuilove gui=new newGuilove();
-	gui.setVisible(true);
-    }
 }

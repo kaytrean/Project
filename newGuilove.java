@@ -29,15 +29,6 @@ public class newGuilove extends JFrame implements ActionListener{
     private JButton btnStore, btnTea, btnNovel, btnHoodie, btnWatch, btnPencil, btnDumbell, btnCD, btnFlour,btnMug, btnCologne;
     //conversations(and other text things)
     JTextArea schoolConvo, gymConvo, parkConvo,storeTalk,homeWords,schoolWords,gymWords,parkWords;
-    /* JScrollPane scroll = new JScrollPane(schoolConvo, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-    JScrollPane scroll1 = new JScrollPane(gymConvo, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-    JScrollPane scroll2 = new JScrollPane(parkConvo, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-    JScrollPane scroll3 = new JScrollPane(storeTalk, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-    JScrollPane scroll4 = new JScrollPane(homeWords, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-    JScrollPane scroll5 = new JScrollPane(schoolWords, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-    JScrollPane scroll6 = new JScrollPane(gymWords,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-    JScrollPane scroll7 = new JScrollPane(parkWords, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-    */
     //Back to Map
     private JButton btnSchoolMap, btnSchoolHangoutMap;
     private JButton btnGymMap, btnGymHangoutMap;
@@ -298,7 +289,7 @@ public class newGuilove extends JFrame implements ActionListener{
 	       if (p.approval>=100&&b.brains>=42&&b.charisma>=17&&b.strength>=13&&b.day<=30){
 		   schoolConvo.append(newLine+ p.confess());
 		   b.relationship=true;
-		   JOptionPane.showMessageDialog(pane, "Turns out, Landon really did belong to the upper class of society. He often got me expensive things I didn`t want or need, but seeing him try to be romantic was too much fun. If I ever do marry him, I certainly would never have to work a day in my life. Good to know. \n \n Congratulations! You completed our game. There are three more endings, do you want to try and get them all? (Please exit game and restart HAVE FUN!!!)");
+		   JOptionPane.showMessageDialog(pane, "Turns out, Landon really did belong to the upper class of society. \n He often got me expensive things I didn`t want or need, but seeing him try to be romantic was too much fun. \n If I ever do marry him, I certainly would never have to work a day in my life. Good to know. \n \n Congratulations! You completed our game. There are three more endings, do you want to try and get them all? \n (Please exit game and restart HAVE FUN!!!)");
 	       }else{
 		if (p.approval<20){
 		    schoolConvo.append(newLine+p.convo());
@@ -330,7 +321,7 @@ public class newGuilove extends JFrame implements ActionListener{
 	    if (j.approval>=100&&b.strength>=45&&b.charisma>=20&&b.brains>=12&&b.day<=30){
 		gymConvo.append(newLine+ j.confess());
 		b.relationship=true;
-		JOptionPane.showMessageDialog(pane, "He may not be the brightest guy I`ve ever met, but out of everyone in this town, James is definitely one of the nicest. If only I didn`t have to keep in shape so much to keep him happy... Oh well, I guess being with him is like promoting future health. \n \n Congratulations! You completed our game. There are three more endings, do you want to try and get them all? (Please exit game and restart HAVE FUN!!!)");
+		JOptionPane.showMessageDialog(pane, "He may not be the brightest guy I`ve ever met, but out of everyone in this town, \n Jimmy is definitely one of the nicest. If only I didn`t have to keep in shape so much to keep him happy... \n Oh well, I guess being with him is like promoting future health. \n \n Congratulations! You completed our game. There are three more endings, do you want to try and get them all? \n (Please exit game and restart HAVE FUN!!!)");
 
 	    }else{
 		if (j.approval<20){
@@ -364,7 +355,7 @@ public class newGuilove extends JFrame implements ActionListener{
 		if(s.approval>=100&&b.charisma>=42&&b.brains>=21&&b.strength>=12&&b.day<=30){
 		    parkConvo.append(newLine+ s.confess());
 		    b.relationship=true;
-		    JOptionPane.showMessageDialog(pane, "Harry never really said much, and that hasn`t changed since we started dating. I think Mom liked him though, but maybe that`s just because she likes to talk so much. He is kinda like an ear to listen to my problems, or a shoulder to fall asleep on.  \n \n Congratulations! You completed our game. There are three more endings, do you want to try and get them all? (Please exit game and restart HAVE FUN!!!)");
+		    JOptionPane.showMessageDialog(pane, "Harry never really said much, and that hasn`t changed since we started dating. \n I think Mom liked him though, but maybe that`s just because she likes to talk so much. \n He is kinda like an ear to listen to my problems, or a shoulder to fall asleep on.  \n \n Congratulations! You completed our game. There are three more endings, do you want to try and get them all? \n (Please exit game and restart HAVE FUN!!!)");
 			}else{
 		    if (s.approval<20){
 			parkConvo.append(newLine+s.convo());
@@ -499,6 +490,7 @@ public class newGuilove extends JFrame implements ActionListener{
 	homeWords = new JTextArea("What would you like to do?");
 	panelHome.add(homeWords);
 	homeWords.setColumns(40);
+	panelHome.add(new JScrollPane(homeWords));
 	//school
 	panelSchool=new JPanel();
 	pane.add(panelSchool);
@@ -516,7 +508,8 @@ public class newGuilove extends JFrame implements ActionListener{
 	btnSchoolMap.addActionListener(this);
 	panelSchool.add(btnSchoolMap);
 	schoolWords = new JTextArea("What would you like to do?");
-	panelSchool.add(schoolWords);
+        panelSchool.add(schoolWords);
+	panelSchool.add(new JScrollPane(schoolWords));
 	//School Activities
 	panelSchoolHangout=new JPanel();
 	pane.add(panelSchoolHangout);
@@ -537,6 +530,7 @@ public class newGuilove extends JFrame implements ActionListener{
 	schoolConvo.setColumns(20);
 	schoolConvo.setRows(10);
 	panelSchoolHangout.add(schoolConvo);
+	panelSchoolHangout.add(new JScrollPane(schoolConvo));
 	//Gym
         panelGym=new JPanel();
 	pane.add(panelGym);
@@ -556,8 +550,8 @@ public class newGuilove extends JFrame implements ActionListener{
 	gymWords = new JTextArea("What would you like to do?");
 	gymWords.setColumns(20);
 	gymWords.setRows(10);
-	//add(scroll6);
 	panelGym.add(gymWords);
+	panelGym.add(new JScrollPane(gymWords));
 	//Gym Activities
 	panelGymHangout=new JPanel();
 	pane.add(panelGymHangout);
@@ -577,7 +571,7 @@ public class newGuilove extends JFrame implements ActionListener{
 	gymConvo = new JTextArea("This is Jimmy, he's captain of the swim team, fencing team, and gymnatics team \n Wow, athletic AND cute. \n ~*What would you like to do?*~");
 	gymConvo.setColumns(20);
 	gymConvo.setRows(10);
-	//panelGym.add(scroll6);
+	panelGymHangout.add(new JScrollPane(gymConvo));
 	panelGymHangout.add(gymConvo);
 	//Park
 	panelPark=new JPanel();
@@ -599,6 +593,7 @@ public class newGuilove extends JFrame implements ActionListener{
 	parkWords.setColumns(20);
 	parkWords.setRows(10);
 	panelPark.add(parkWords);
+	panelPark.add(new JScrollPane(parkWords));
 	//Park Activities
 	panelParkHangout=new JPanel();
 	pane.add(panelParkHangout);
@@ -619,6 +614,7 @@ public class newGuilove extends JFrame implements ActionListener{
 	parkConvo.setColumns(20);
 	parkConvo.setRows(10);
 	panelParkHangout.add(parkConvo);
+	panelParkHangout.add(new JScrollPane(parkConvo));
 	//Store
 	panelStore=new JPanel();
 	pane.add(panelStore);
@@ -661,6 +657,7 @@ public class newGuilove extends JFrame implements ActionListener{
 	panelStore.add(btnStoreMap);
 	storeTalk = new JTextArea("What do you want to buy?");
 	panelStore.add(storeTalk);
+	panelStore.add(new JScrollPane(storeTalk));
     }
 
 }

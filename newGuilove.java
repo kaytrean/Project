@@ -282,29 +282,71 @@ public class newGuilove extends JFrame implements ActionListener{
 	   if (b.inventory.indexOf(input)!= -1){
 	       parkConvo.append(newLine+s.gift(input));
 	   }else {parkConvo.append(newLine+"~*WHOOPS! You don't have that in your invetory!*~");
-	   }
+	   
 	   	b.energy=b.energy-55;
 		b.inventory.remove(input);
 		parkConvo.append(newLine+"Your energy is now: "+b.getEnergy());
-	    }else parkConvo.append(newLine+"You don't have enough energy! It is now: "+ b.getEnergy());
+	   }
+	    }else{ parkConvo.append(newLine+"You don't have enough energy! It is now: "+ b.getEnergy());
+	    }
 	}//talking (OMG FINALLY RIGHT LOL)
-	else if (e.getSource()==btnSTalk){
-	    if (b.getEnergy()>=55){
-		schoolConvo.append(newLine+p.convo());
-		b.energy=b.energy-55;
-		schoolConvo.append(newLine+"Your energy is now: "+b.getEnergy());
-	    }else schoolConvo.append(newLine+" You don't have enough energy! It is now: "+b.getEnergy());
-	}else if (e.getSource()==btnGTalk){
-	    if (b.getEnergy()>=55){
-		gymConvo.append(newLine+j.convo());
-		b.energy=b.energy-55;
-		gymConvo.append(newLine+"Your energy is now: "+b.getEnergy());
-	    }else gymConvo.append(newLine+" You don't have enough energy! It is now: "+b.getEnergy());
-	}else if (e.getSource()==btnPTalk){
+    else if (e.getSource()==btnSTalk){
+	   if (b.getEnergy()>=50){
+		if (p.approval<20){
+		    schoolConvo.append(newLine+p.convo());
+		}else if(p.approval<35&& b.brains<15){
+		    Random f = new Random();
+		    int d=f.nextInt(2)+1;
+		    if (d==2){
+			schoolConvo.append(newLine+p.specialConvo1());
+		    }else{schoolConvo.append(newLine+p.convo());
+		    }
+		}
+		    else { 
+			Random m = new Random();
+			int h =m.nextInt(4)+1;
+			if(h>2){
+			    schoolConvo.append(newLine+p.specialConvo2());
+			}else if (h==2){
+			    schoolConvo.append(newLine+p.specialConvo1());
+			}else {schoolConvo.append(newLine+p.convo());
+			}
+		    }
+	   } b.energy=b.energy-50;
+		    gymConvo.append(newLine+"Your energy is now: "+b.getEnergy());
+    }else {gymConvo.append(newLine+" You don't have enough energy! It is now: "+b.getEnergy());
+	}
+    else if (e.getSource()==btnGTalk){
+	    if (b.getEnergy()>=50){
+		if (j.approval<20){
+		    gymConvo.append(newLine+j.convo());
+		}else if(j.approval<35&& b.strength<15){
+		    Random g = new Random();
+		    int q=k.nextInt(2)+1;
+		    if (q==2){
+			gymConvo.append(newLine+j.specialConvo1());
+		    }else{gymConvo.append(newLine+j.convo());
+		    }
+		}
+		    else { 
+			Random o = new Random();
+			int U =o.nextInt(4)+1;
+			if(U>2){
+			    gymConvo.append(newLine+j.specialConvo2());
+			}else if (U==2){
+			    gymConvo.append(newLine+j.specialConvo1());
+			}else {gymConvo.append(newLine+j.convo());
+			}
+		    }
+	    } b.energy=b.energy-50;
+		    gymConvo.append(newLine+"Your energy is now: "+b.getEnergy());
+    }else {gymConvo.append(newLine+" You don't have enough energy! It is now: "+b.getEnergy());
+    }
+    else if (e.getSource()==btnPTalk){
 	    if (b.getEnergy()>=50){
 		if (s.approval<20){
 		    parkConvo.append(newLine+s.convo());
-		}else if(p.approval<35){
+		}else if(p.approval<35&& b.charisma<15){
 		    Random k = new Random();
 		    int i=k.nextInt(2)+1;
 		    if (i==2){
@@ -324,10 +366,11 @@ public class newGuilove extends JFrame implements ActionListener{
 		    }
 	    } b.energy=b.energy-50;
 		    parkConvo.append(newLine+"Your energy is now: "+b.getEnergy());
-	}else {parkConvo.append(newLine+" You don't have enough energy! It is now: "+b.getEnergy());
+    }else {parkConvo.append(newLine+" You don't have enough energy! It is now: "+b.getEnergy());
     }
 	
     }
+	
     public newGuilove(){
         
 	setTitle("Match");

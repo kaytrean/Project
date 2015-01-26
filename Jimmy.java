@@ -41,6 +41,18 @@ import java.util.Random;
       return afterConvo;
       
      }
+     public String specialConvo1(){
+	 String afterSpecial1="";
+	 afterSpecial1="Jimmy: Hey! I don't think I've ever seen you before, name's Jim. So, you come here to check out the hot guys huh? \n You: Huh?! What are you trying to say? Do you count as one? \n Jimmy: Hey, I'm just teasing, don't take everything so seriously cutie... \n You: Cutie??? I think you need to watch your attitude. \n Jimmy: Sorry, I don't mean anything by it Amy... Just ignore me if you want. \n You:  Amy? \n Jimmy: Well yeah, I don't know your name, and you look kinda like an Amy.\n You: You could just ask me my name... \n Jimmy: Meh, I probably won't remember it, Amy.";
+	 return afterSpecial1;
+     }
+
+     public String specialConvo2(){
+	 String afterSpecial2="";
+	 afterSpecial2="Jimmy: You alright Lola? You don't look so good. \n You: I'm fine... just a bit dizzy. Perhaps I pushed myself too hard. \n Jimmy: You shouldn't be walking alone, do you want me to take you home? \n You: Actually yeah, that would be great.\n Jimmy: Cool, let me just grab my equipment and we'll get going. \n Jimmy: You starting to like this town? I gotta say it's gotten a lot nicer since you came.";
+     }
+
+     
  
      public String gift(String item){
 	 String afterGift="";

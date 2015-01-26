@@ -11,7 +11,7 @@ import java.util.Random;
    
 
      public Jimmy(){
-	 Likes.add("Novel");
+	 Likes.add("Romance Novel");
 	 Likes.add("Hoodie");
 	 Likes.add("Mug");
 	 Likes.add("Cologne");
@@ -50,6 +50,7 @@ import java.util.Random;
      public String specialConvo2(){
 	 String afterSpecial2="";
 	 afterSpecial2="Jimmy: You alright Lola? You don't look so good. \n You: I'm fine... just a bit dizzy. Perhaps I pushed myself too hard. \n Jimmy: You shouldn't be walking alone, do you want me to take you home? \n You: Actually yeah, that would be great.\n Jimmy: Cool, let me just grab my equipment and we'll get going. \n Jimmy: You starting to like this town? I gotta say it's gotten a lot nicer since you came.";
+	 return afterSpecial2;
      }
 
      
@@ -66,4 +67,9 @@ import java.util.Random;
 	 }else afterGift="Jimmy: What no! Who do you think you are? \n ~(You must speak to them at least once before you can gift!)~";
 	 return afterGift;
      }
+
+     public String confess(){
+	 return "Jimmy: You should let me take you out sometime. \n You:Sure, I'd like to hang out with a friend.\n Jimmy: Yeah, I was just thinking the same thing! You know you aren't that horrible to talk to. \n Jimmy: But eh, I was thinking, would you maybe wanna go out with me? \n You: Of course! I like you a lot, actually. \n Jimmy: Really? You too? Then I guess I was scared for nothing!";
+     }
+
  }

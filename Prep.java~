@@ -39,7 +39,19 @@ import java.util.Random;
       return afterConvo;
       }
      
-      
+     public String specialConvo1(){
+	 String afterSpecial1="";
+	 afterSpecial1="Landon: You can stop staring... I can see you...\n You: Don't flatter yourself, I wasn't staring. \n Landon: Hm, the direction of your eyes tells a different story \n You: I don't need you to tell me which direction I was looking, thank you very much! \n You: Well, obviously you do.";
+	 return afterSpecial1;
+     }
+
+     public String specialConvo2(){
+	 String afterSpecial2="";
+	 afterSpecial2=" Landon: Do you need something? \n You: Not really, just making conversation. \n Landon: Well is it possible for you to make it elsewhere? \n You: Hmfp, and I was just starting to think we were friends.\n Landon: I have no need for 'friends' and at your rate you should focus more on your studies. \n You: Something tells me you don't have a girlfriend \n Landon: Excellent deduction, but I fail to see how that matters. \n You: I think you are a good conversationalist. \n Landon: Is that so? I would think you would dislike my constant dismissiveness of you. \n You: Somehow, I find it oddly charming. \n Landon: You would be the first";
+	 return afterSpecial2;
+     }
+
+
  public String gift(String item){
      String afterGift="";
      if (this.approval!=0){

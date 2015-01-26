@@ -41,7 +41,7 @@ import java.util.Random;
      
      public String specialConvo1(){
 	 String afterSpecial1="";
-	 afterSpecial="Landon: You can stop staring... I can see you...\n You: Don't flatter yourself, I wasn't staring. \n Landon: Hm, the direction of your eyes tells a different story \n You: I don't need you to tell me which direction I was looking, thank you very much! \n You: Well, obviously you do.";
+	 afterSpecial1="Landon: You can stop staring... I can see you...\n You: Don't flatter yourself, I wasn't staring. \n Landon: Hm, the direction of your eyes tells a different story \n You: I don't need you to tell me which direction I was looking, thank you very much! \n You: Well, obviously you do.";
 	 return afterSpecial1;
      }
 
@@ -66,4 +66,8 @@ import java.util.Random;
      }
      return afterGift;
  }
- }
+
+     public String confess(){
+	 return " Landon: I would like to propose a mutually beneficial agreement. \n You: What does that mean? \n Landon: Seeing as you are the first girl who has enough audacity to speak with me, I believe it would be suitable to upgrade the status of our relationship.\n You: Wait what? Are you talking about dating? \n Landon: I was alluding to something of the sort, yes... \n You: Sure I could live with that. \n Landon: Good, you would have been even more foolish than I thought if you declined. ";
+}
+}

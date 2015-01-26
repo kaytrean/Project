@@ -158,5 +158,6 @@ public class BaseChar{
 	    return afterSleep;
     }
 
+	    
 }
 

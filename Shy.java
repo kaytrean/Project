@@ -66,5 +66,9 @@ import java.util.Random;
 	 }else afterGift="Harry: What no! STRANGER DANGER! PLEASE LEAVE ME ALONE! \n ~(You must speak to them at least once before you can gift!)~";
 	 return afterGift;
      }
+     public String confess(){
+	 return "Harry: Does this count as a relationship? \n You:Do you want it to? \n Harry: That would be...nice. \n You: Then I guess I would like that too.";
+
  }
 
+ }

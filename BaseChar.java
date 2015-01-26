@@ -158,6 +158,7 @@ public class BaseChar{
 	    return afterSleep;
     }
 
-	    
+    public String notWin(){
+	    return "Well, Mom was certainly upset with me... I guess she was disappointed that someone who inherited her looks is single. I think she's starting to plan an arranged marriage between me and one of the cashiers at the mall, but I could just be paranoid.";
+    }
 }
-

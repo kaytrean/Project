@@ -128,6 +128,9 @@ public class newGuilove extends JFrame implements ActionListener{
 	    homeWords.append(newLine+b.sleep());
 	    homeWords.append(newLine+"Your energy level is now: "+b.getEnergy());
 	    homeWords.append(newLine+"You now have "+(31-b.getDays())+" days left");
+	    if (b.getDays()>30) {
+		JOptionPane.showMessageDialog(pane,b.notWin());
+		}
 	}
 	//back to map
 	else if (e.getSource()==btnSchoolHangoutMap){

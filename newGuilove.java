@@ -487,7 +487,8 @@ public class newGuilove extends JFrame implements ActionListener{
 	btnHomeMap=new JButton("Back to Map");
 	btnHomeMap.addActionListener(this);
 	panelHome.add(btnHomeMap);
-	homeWords = new JTextArea("What would you like to do?");
+	homeWords = new JTextArea(10,50);
+	homeWords.append("What would you like to do?");
 	panelHome.add(homeWords);
 	homeWords.setColumns(40);
 	panelHome.add(new JScrollPane(homeWords));
@@ -507,7 +508,8 @@ public class newGuilove extends JFrame implements ActionListener{
 	btnSchoolMap=new JButton("Back to Map");
 	btnSchoolMap.addActionListener(this);
 	panelSchool.add(btnSchoolMap);
-	schoolWords = new JTextArea("What would you like to do?");
+	schoolWords = new JTextArea(10,50);
+	schoolWords.append("What would you like to do?");
         panelSchool.add(schoolWords);
 	panelSchool.add(new JScrollPane(schoolWords));
 	//School Activities
@@ -526,7 +528,8 @@ public class newGuilove extends JFrame implements ActionListener{
 	btnSchoolHangoutMap=new JButton("Back to Map");
 	btnSchoolHangoutMap.addActionListener(this);
 	panelSchoolHangout.add(btnSchoolHangoutMap);
-	schoolConvo = new JTextArea("This is Landon, he's really smart, and cute too i guess... \n ~*What would you like to do?*~");
+	schoolConvo = new JTextArea(10,50);
+	schoolConvo.append("This is Landon, he's really smart, and cute too i guess... \n ~*What would you like to do?*~");
 	schoolConvo.setColumns(20);
 	schoolConvo.setRows(10);
 	panelSchoolHangout.add(schoolConvo);
@@ -568,7 +571,8 @@ public class newGuilove extends JFrame implements ActionListener{
 	btnGymHangoutMap=new JButton("Back to Map");
 	btnGymHangoutMap.addActionListener(this);
 	panelGymHangout.add(btnGymHangoutMap);
-	gymConvo = new JTextArea("This is Jimmy, he's captain of the swim team, fencing team, and gymnatics team \n Wow, athletic AND cute. \n ~*What would you like to do?*~");
+	gymConvo = new JTextArea(10,50);
+	gymConvo.append("This is Jimmy, he's captain of the swim team, fencing team, and gymnatics team \n Wow, athletic AND cute. \n ~*What would you like to do?*~");
 	gymConvo.setColumns(20);
 	gymConvo.setRows(10);
 	panelGymHangout.add(new JScrollPane(gymConvo));
@@ -589,7 +593,8 @@ public class newGuilove extends JFrame implements ActionListener{
 	btnParkMap=new JButton("Back to Map");
 	btnParkMap.addActionListener(this);
 	panelPark.add(btnParkMap);
-	parkWords = new JTextArea("What would you like to do?");
+	parkWords = new JTextArea(10,50);
+	parkWords.append("What would you like to do?");
 	parkWords.setColumns(20);
 	parkWords.setRows(10);
 	panelPark.add(parkWords);
@@ -610,7 +615,8 @@ public class newGuilove extends JFrame implements ActionListener{
 	btnParkHangoutMap=new JButton("Back to Map");
 	btnParkHangoutMap.addActionListener(this);
 	panelParkHangout.add(btnParkHangoutMap);
-	parkConvo = new JTextArea("This is Harry, he's pretty quiet, around school he usually reads or listens to music \n by himself in the courtyard. He seems nice \n Maybe I should get to know him better. \n ~*What would you like to do?*~");
+	parkConvo = new JTextArea(10,50);
+	parkConvo.append("This is Harry, he's pretty quiet, around school he usually reads or listens to music \n by himself in the courtyard. He seems nice \n Maybe I should get to know him better. \n ~*What would you like to do?*~");
 	parkConvo.setColumns(20);
 	parkConvo.setRows(10);
 	panelParkHangout.add(parkConvo);
@@ -655,7 +661,8 @@ public class newGuilove extends JFrame implements ActionListener{
 	btnStoreMap=new JButton("Back to Map");
 	btnStoreMap.addActionListener(this);
 	panelStore.add(btnStoreMap);
-	storeTalk = new JTextArea("What do you want to buy?");
+	storeTalk = new JTextArea(10,50);
+	storeTalk.append("What do you want to buy?");
 	panelStore.add(storeTalk);
 	panelStore.add(new JScrollPane(storeTalk));
     }

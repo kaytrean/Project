@@ -85,7 +85,8 @@ public class newGuilove extends JFrame implements ActionListener{
 	}else if (e.getSource()==btnStore){
 	    panelStore.setVisible(true);
 	    panelMain.setVisible(false);
-	}//hangingout
+	}
+	//hangingout
 	else if (e.getSource()==btnSHangout){
 	    panelSchoolHangout.setVisible(true);
 	    panelSchool.setVisible(false);
@@ -98,7 +99,8 @@ public class newGuilove extends JFrame implements ActionListener{
 	}else if (e.getSource()==btnSchoolMap){
 	    panelMain.setVisible(true);
 	    panelSchool.setVisible(false);
-	}//doing things
+	}
+	//doing things
 	else if (e.getSource()==btnLearn){
 	    schoolWords.append(newLine+b.learning());
 	    schoolWords.append(newLine+"Your smarts level is now:"+b.getBrains());
@@ -145,7 +147,8 @@ public class newGuilove extends JFrame implements ActionListener{
 	}else if (e.getSource()==btnHomeMap){
 	    panelMain.setVisible(true);
 	    panelHome.setVisible(false);
-	}//Buying things
+	}
+	//Buying things
 	else if (e.getSource()==btnTea){
 	    if(b.money-10>=0){
 		b.buy("Tea");
@@ -246,44 +249,52 @@ public class newGuilove extends JFrame implements ActionListener{
 	    }else{ storeTalk.append(newLine+"You dont have enough money!");
 		storeTalk.append(newLine+"You have $"+b.getMoney()+" dollars");
 	    }
-	}//Giving things
-    
+	}
+	//Giving things
 	else if (e.getSource()==btnGGift){
 	    if(b.getEnergy()>=55){
 		String input = JOptionPane.showInputDialog("What would you like to give:" + b.inventory);
 		if (b.inventory.indexOf(input)!= -1){
 		    gymConvo.append(newLine+j.gift(input));
-		}else {gymConvo.append(newLine+"~*WHOOPS! You don't have that in your invetory!*~");
+		    	b.energy=b.energy-55;
+		}else if (b.inventory.indexOf(input)== -1){
+		    gymConvo.append(newLine+"~*WHOOPS! You don't have that in your invetory!*~");
+		}else{gymConvo.append(newLine+"~*no gift? ok maybe next time*~");
 		}
-		b.energy=b.energy-55;
 		b.inventory.remove(input);
 		gymConvo.append(newLine+"Your energy is now: "+b.getEnergy());
-	    }else gymConvo.append(newLine+"You don't have enough energy! It is now: "+ b.getEnergy());
+	    }else {gymConvo.append(newLine+"You don't have enough energy! It is now: "+ b.getEnergy());
+	    }
 	}else if (e.getSource()==btnSGift){
 	    if(b.getEnergy()>=55){
 		String input = JOptionPane.showInputDialog("What would you like to give:" + b.inventory);
 		if (b.inventory.indexOf(input)!= -1){
 		    schoolConvo.append(newLine+p.gift(input));
-		}else {schoolConvo.append(newLine+"~*WHOOPS! You don't have that in your invetory!*~");
+		    b.energy=b.energy-55;
+		}else if (b.inventory.indexOf(input)== -1){
+		    schoolConvo.append(newLine+"~*WHOOPS! You don't have that in your invetory!*~"); 
+		}else{schoolConvo.append(newLine+"~*no gift? ok maybe next time*~");
 		}
-		b.energy=b.energy-55;
 		b.inventory.remove(input);
 		schoolConvo.append(newLine+"Your energy is now: "+b.getEnergy());
-	    }else schoolConvo.append(newLine+"You don't have enough energy! It is now: "+ b.getEnergy());
-	}else if (e.getSource()==btnPGift){
+	    }else {schoolConvo.append(newLine+"You don't have enough energy! It is now: "+ b.getEnergy());
+	    }
+	    }else if (e.getSource()==btnPGift){
 	    if(b.getEnergy()>=55){
 	   String input = JOptionPane.showInputDialog("What would you like to give:" + b.inventory);
 	   if (b.inventory.indexOf(input)!= -1){
 	       parkConvo.append(newLine+s.gift(input));
-	   }else {parkConvo.append(newLine+"~*WHOOPS! You don't have that in your invetory!*~");
-	   
-	   	b.energy=b.energy-55;
-		b.inventory.remove(input);
-		parkConvo.append(newLine+"Your energy is now: "+b.getEnergy());
-	   }
+	       b.energy=b.energy-55;
+	   }else if (b.inventory.indexOf(input)==-1){
+	       parkConvo.append(newLine+"~*WHOOPS! You don't have that in your invetory!*~");
+	   }else {parkConvo.append(newLine+"~*no gift? ok maybe next time*~");
+	   } 
+	   b.inventory.remove(input);
+	   parkConvo.append(newLine+"Your energy is now: "+b.getEnergy());
 	    }else{ parkConvo.append(newLine+"You don't have enough energy! It is now: "+ b.getEnergy());
 	    }
-	}//talking (OMG FINALLY RIGHT LOL)
+	}
+	//talking (OMG FINALLY RIGHT LOL)
     else if (e.getSource()==btnSTalk){
 	   if (b.getEnergy()>=50){
 	       if (p.approval>=100&&b.brains>=42&&b.charisma>=17&&b.strength>=13&&b.day<=30){
@@ -530,7 +541,7 @@ public class newGuilove extends JFrame implements ActionListener{
 	panelSchoolHangout.add(btnSchoolHangoutMap);
 	schoolConvo = new JTextArea(10,50);
 	schoolConvo.append("This is Landon, he's really smart, and cute too i guess... \n ~*What would you like to do?*~");
-	schoolConvo.setColumns(20);
+	schoolConvo.setColumns(50);
 	schoolConvo.setRows(10);
 	panelSchoolHangout.add(schoolConvo);
 	panelSchoolHangout.add(new JScrollPane(schoolConvo));
@@ -573,7 +584,7 @@ public class newGuilove extends JFrame implements ActionListener{
 	panelGymHangout.add(btnGymHangoutMap);
 	gymConvo = new JTextArea(10,50);
 	gymConvo.append("This is Jimmy, he's captain of the swim team, fencing team, and gymnatics team \n Wow, athletic AND cute. \n ~*What would you like to do?*~");
-	gymConvo.setColumns(20);
+	gymConvo.setColumns(50);
 	gymConvo.setRows(10);
 	panelGymHangout.add(new JScrollPane(gymConvo));
 	panelGymHangout.add(gymConvo);
@@ -615,9 +626,9 @@ public class newGuilove extends JFrame implements ActionListener{
 	btnParkHangoutMap=new JButton("Back to Map");
 	btnParkHangoutMap.addActionListener(this);
 	panelParkHangout.add(btnParkHangoutMap);
-	parkConvo = new JTextArea(10,50);
+	parkConvo = new JTextArea(10,90);
 	parkConvo.append("This is Harry, he's pretty quiet, around school he usually reads or listens to music \n by himself in the courtyard. He seems nice \n Maybe I should get to know him better. \n ~*What would you like to do?*~");
-	parkConvo.setColumns(20);
+	parkConvo.setColumns(50);
 	parkConvo.setRows(10);
 	panelParkHangout.add(parkConvo);
 	panelParkHangout.add(new JScrollPane(parkConvo));
